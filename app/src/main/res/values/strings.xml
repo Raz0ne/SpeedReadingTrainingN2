@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SpeedReading Training</string>
+
+    <!--login screen start-->
+    <string name="login_text">Вход</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Пароль</string>
+    <!--login screen end-->
+
+    <!--register screen start-->
+    <string name="register_text">Регистрация</string>
+    <string name="register_email">@string/login_email</string>
+    <string name="register_password">@string/login_password</string>
+    <string name="register_password_repeating">Повторите пароль</string>
+    <!--register screen end-->
+</resources>
