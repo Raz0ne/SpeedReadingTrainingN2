@@ -1,16 +1,33 @@
 <resources>
     <string name="app_name">SpeedReading Training</string>
 
-    <!--login screen start-->
+    <!--login fragment start-->
     <string name="login_text">Вход</string>
     <string name="login_email">Email</string>
     <string name="login_password">Пароль</string>
-    <!--login screen end-->
+    <string name="login_password_error">Неверный пароль</string>
+    <string name="login_password_forgotten">Не помню пароль</string>
+    <string name="login_enter_btn_txt">Войти</string>
+    <string name="login_register_tv_txt">Нет аккаунта? <u>Зарегистрируйтесь!</u></string>
+    <!--login fragment end-->
 
-    <!--register screen start-->
+    <!--register fragment start-->
     <string name="register_text">Регистрация</string>
     <string name="register_email">@string/login_email</string>
     <string name="register_password">@string/login_password</string>
     <string name="register_password_repeating">Повторите пароль</string>
-    <!--register screen end-->
+    <string name="register_enter_btn_txt">Зарегистрироваться</string>
+    <string name="register_login_tv_txt">Есть аккаунт? <u>Войти</u></string>
+    <!--register fragment end-->
+
+    <!--bottom navigation view start-->
+    <string name="menu_timer">Тренировка</string>
+    <string name="menu_training">Упражнения</string>
+    <string name="menu_account">Аккаунт</string>
+    <!--bottom navigation view end-->
+
+    <!--account fragment start-->
+    <string name="account_logout_btn_txt">Выйти из аккаунта</string>
+    <!--account fragment end-->
+
 </resources>

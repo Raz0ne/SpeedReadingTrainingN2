@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/timerFragment"
+        android:icon="@drawable/baseline_access_alarm_24"
+        android:title="@string/menu_timer" />
+
+    <item
+        android:id="@+id/trainingFragment"
+        android:icon="@drawable/outline_account_circle_24"
+        android:title="@string/menu_training" />
+
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/round_menu_book_24"
+        android:title="@string/menu_account" />
+
+
+</menu>
