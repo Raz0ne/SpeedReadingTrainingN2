@@ -1,4 +1,4 @@
-package edu.application.ui.fragments;
+package edu.application.ui.fragments.auth;
 
 import static android.content.Context.MODE_PRIVATE;
 

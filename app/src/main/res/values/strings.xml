@@ -23,11 +23,30 @@
     <!--bottom navigation view start-->
     <string name="menu_timer">Тренировка</string>
     <string name="menu_training">Упражнения</string>
+    <string name="menu_settings">Настройки</string>
     <string name="menu_account">Аккаунт</string>
     <!--bottom navigation view end-->
 
     <!--account fragment start-->
     <string name="account_logout_btn_txt">Выйти из аккаунта</string>
     <!--account fragment end-->
+
+    <!--settings fragment start-->
+    <string name="settings_color_scheme_btn_txt">Цветовая схема</string>
+    <string name="settings_font_settings_btn_txt">Настройки шрифта</string>
+    <!--settings fragment end-->
+
+    <!--color scheme fragment start-->
+    <string name="color_scheme_light_btn_txt">Светлая</string>
+    <string name="color_scheme_custom_btn_txt">Своя</string>
+    <!--color scheme fragment end-->
+
+    <!--color scheme custom fragment start-->
+    <string name="color_scheme_custom_back_btn_desc">Назад</string>
+    <string name="color_scheme_custom_set_background_color_btn_txt">Установить\n для фона</string>
+    <string name="color_scheme_custom_set_text_color_btn_txt">Установить\n для текста</string>
+    <string name="color_scheme_custom_sample_text_tv_txt">Пример текста</string>
+    <string name="color_scheme_custom_save_btn_txt">Сохранить изменения</string>
+    <!--color scheme custom fragment end-->
 
 </resources>

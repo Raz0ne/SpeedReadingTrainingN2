@@ -8,13 +8,17 @@
 
     <item
         android:id="@+id/trainingFragment"
-        android:icon="@drawable/outline_account_circle_24"
+        android:icon="@drawable/round_menu_book_24"
         android:title="@string/menu_training" />
 
     <item
-        android:id="@+id/accountFragment"
-        android:icon="@drawable/round_menu_book_24"
-        android:title="@string/menu_account" />
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/outline_settings_24"
+        android:title="@string/menu_settings" />
 
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/outline_account_circle_24"
+        android:title="@string/menu_account" />
 
 </menu>

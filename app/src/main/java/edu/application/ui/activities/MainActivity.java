@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
             switch (navDestination.getId()) {
                 case R.id.trainingFragment:
+                case R.id.settingsFragment:
                 case R.id.accountFragment:
                     showBottomNav();
                     break;

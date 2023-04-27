@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="edu.application.ui.fragments.LoginFragment"
+        android:name="edu.application.ui.fragments.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="edu.application.ui.fragments.RegisterFragment"
+        android:name="edu.application.ui.fragments.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -45,8 +45,8 @@
             app:popUpTo="@id/trainingFragment"
             app:popUpToInclusive="true"/>
         <action
-            android:id="@+id/action_trainingFragment_to_lessonReadingTextFragment"
-            app:destination="@id/lessonReadingTextFragment"
+            android:id="@+id/action_trainingFragment_to_lessonReadingFragment"
+            app:destination="@id/lessonReadingFragment"
             app:popUpTo="@id/trainingFragment"
             app:popUpToInclusive="false"/>
     </fragment>
@@ -68,5 +68,72 @@
         android:name="edu.application.ui.fragments.LessonReadingTextFragment"
         android:label="fragment_lesson_reading_text"
         tools:layout="@layout/fragment_lesson_reading_text" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/lessonReadingQuestionsFragment"
+        android:name="edu.application.ui.fragments.LessonReadingQuestionsFragment"
+        android:label="fragment_lesson_reading_questions"
+        tools:layout="@layout/fragment_lesson_reading_questions" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/lessonReadingFragment"
+        android:name="edu.application.ui.fragments.LessonReadingFragment"
+        android:label="fragment_lesson_reading"
+        tools:layout="@layout/fragment_lesson_reading" >
+        <action
+            android:id="@+id/action_lessonReadingFragment_to_lessonReadingTextFragment"
+            app:destination="@id/lessonReadingTextFragment"
+            app:popUpTo="@id/lessonReadingFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_lessonReadingFragment_to_lessonReadingQuestionsFragment"
+            app:destination="@id/lessonReadingQuestionsFragment"
+            app:popUpTo="@id/lessonReadingFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="edu.application.ui.fragments.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_colorSchemeFragment"
+            app:destination="@id/colorSchemeFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_fontSettingsFragment"
+            app:destination="@id/fontSettingsFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/colorSchemeFragment"
+        android:name="edu.application.ui.fragments.settings.ColorSchemeFragment"
+        android:label="fragment_colors_scheme"
+        tools:layout="@layout/fragment_colors_scheme" >
+        <action
+            android:id="@+id/action_colorSchemeFragment_to_colorSchemeCustomFragment"
+            app:destination="@id/colorSchemeCustomFragment"
+            app:popUpTo="@id/colorSchemeFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/colorSchemeCustomFragment"
+        android:name="edu.application.ui.fragments.settings.ColorSchemeCustomFragment"
+        android:label="fragment_colors_custom_scheme"
+        tools:layout="@layout/fragment_colors_scheme_custom" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/fontSettingsFragment"
+        android:name="edu.application.ui.fragments.settings.FontSettingsFragment"
+        android:label="fragment_font_settings"
+        tools:layout="@layout/fragment_font_settings" >
     </fragment>
 </navigation>

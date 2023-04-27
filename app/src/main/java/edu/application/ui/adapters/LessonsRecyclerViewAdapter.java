@@ -16,6 +16,7 @@ import java.util.List;
 
 import edu.application.R;
 import edu.application.data.models.Lesson;
+import edu.application.data.models.LessonQuestion;
 import edu.application.databinding.FragmentLessonItemViewBinding;
 
 public class LessonsRecyclerViewAdapter extends
@@ -56,12 +57,19 @@ public class LessonsRecyclerViewAdapter extends
         holder.binding.lessonAgeCategory.setText(
                 String.valueOf(lesson.getAgeMin()) + '-' + lesson.getAgeMax());
         holder.binding.lessonTextSize.setText(lesson.getSize());
+
         holder.binding.getRoot().setOnClickListener(view -> {
             Bundle bundle = new Bundle();
             bundle.putString("text", lesson.getText());
+            bundle.putInt("questions_count", lesson.getQuestions().size());
+            for (int i = 0; i < lesson.getQuestions().size(); i++) {
+                LessonQuestion question = lesson.getQuestions().get(i);
+                bundle.putString("question" + i, question.getQuestion());
+                bundle.putString("answer" + i, question.getAnswer());
+            }
             Navigation.findNavController(
                     (Activity) holder.itemView.getContext(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_trainingFragment_to_lessonReadingTextFragment, bundle);
+                    .navigate(R.id.action_trainingFragment_to_lessonReadingFragment, bundle);
         });
     }
 

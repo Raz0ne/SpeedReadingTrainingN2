@@ -88,7 +88,7 @@
         android:text="@string/login_password_forgotten"
         android:layout_margin="8dp"
         android:textColor="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toTopOf="@id/password_et"
+        app:layout_constraintBottom_toTopOf="@id/password_visibility_btn"
         app:layout_constraintRight_toRightOf="@id/password_et" />
 
     <TextView

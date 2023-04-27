@@ -1,4 +1,4 @@
-package edu.application.ui.fragments;
+package edu.application.ui.fragments.auth;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

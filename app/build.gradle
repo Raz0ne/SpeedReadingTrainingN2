@@ -64,4 +64,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
 
     implementation 'com.google.code.gson:gson:2.9.0'
+
+    implementation 'com.larswerkman:HoloColorPicker:1.5'
 }
