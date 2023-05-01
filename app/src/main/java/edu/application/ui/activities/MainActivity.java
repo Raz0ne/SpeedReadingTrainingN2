@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
             switch (navDestination.getId()) {
                 case R.id.trainingFragment:
                 case R.id.settingsFragment:
+                case R.id.colorSchemeFragment:
+                case R.id.colorSchemeCustomFragment:
                 case R.id.accountFragment:
                     showBottomNav();
                     break;

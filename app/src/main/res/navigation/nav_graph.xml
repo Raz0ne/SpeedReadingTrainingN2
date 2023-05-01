@@ -121,6 +121,11 @@
             app:destination="@id/colorSchemeCustomFragment"
             app:popUpTo="@id/colorSchemeFragment"
             app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_colorSchemeFragment_to_colorSchemeFragment"
+            app:destination="@id/colorSchemeFragment"
+            app:popUpTo="@id/colorSchemeFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
