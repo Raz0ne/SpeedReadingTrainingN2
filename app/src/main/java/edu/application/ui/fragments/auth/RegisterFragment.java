@@ -27,6 +27,13 @@ public class RegisterFragment extends Fragment {
 
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
 
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         binding.emailEt.addTextChangedListener(new AuthTextWatcher(binding.emailTv));
         binding.passwordEt.addTextChangedListener(new AuthTextWatcher(binding.passwordTv));
         binding.passwordRepeatingEt.addTextChangedListener(
@@ -40,7 +47,5 @@ public class RegisterFragment extends Fragment {
         binding.enterBtn.setOnClickListener(v ->
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                         .navigate(R.id.action_registerFragment_to_loginFragment));
-
-        return binding.getRoot();
     }
 }

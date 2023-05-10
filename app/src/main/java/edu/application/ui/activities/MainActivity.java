@@ -1,23 +1,20 @@
 package edu.application.ui.activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import edu.application.R;
 import edu.application.databinding.ActivityMainBinding;
+import edu.application.ui.adapters.TextFormatter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.settingsFragment:
                 case R.id.colorSchemeFragment:
                 case R.id.colorSchemeCustomFragment:
+                case R.id.fontSettingsFragment:
                 case R.id.accountFragment:
                     showBottomNav();
                     break;
@@ -58,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavView, navController);
 
         sharedPreferences = getPreferences(MODE_PRIVATE);
+        TextFormatter.setSharedPreferences(sharedPreferences);
         if (sharedPreferences.getInt("auth", 0) == 0)
             navController.navigate(R.id.action_trainingFragment_to_loginFragment);
     }

@@ -25,13 +25,18 @@ public class SettingsFragment extends Fragment {
 
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
 
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         binding.colorSchemeBtn.setOnClickListener(v ->
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                         .navigate(R.id.action_settingsFragment_to_colorSchemeFragment));
         binding.fontSettingsBtn.setOnClickListener(v ->
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                         .navigate(R.id.action_settingsFragment_to_fontSettingsFragment));
-
-        return binding.getRoot();
     }
 }

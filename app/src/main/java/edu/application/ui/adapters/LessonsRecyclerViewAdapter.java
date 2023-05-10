@@ -55,7 +55,7 @@ public class LessonsRecyclerViewAdapter extends
         holder.binding.lessonTextName.setText(lesson.getTextName());
         holder.binding.lessonTextAuthor.setText(lesson.getTextAuthor());
         holder.binding.lessonAgeCategory.setText(
-                String.valueOf(lesson.getAgeMin()) + '-' + lesson.getAgeMax());
+                String.valueOf(lesson.getAgeMin()) + '+');
         holder.binding.lessonTextSize.setText(lesson.getSize());
 
         holder.binding.getRoot().setOnClickListener(view -> {
@@ -65,7 +65,10 @@ public class LessonsRecyclerViewAdapter extends
             for (int i = 0; i < lesson.getQuestions().size(); i++) {
                 LessonQuestion question = lesson.getQuestions().get(i);
                 bundle.putString("question" + i, question.getQuestion());
-                bundle.putString("answer" + i, question.getAnswer());
+                bundle.putInt("answers_cnt" + i, question.getAnswers().size());
+                for (int j = 0; j < question.getAnswers().size(); j++)
+                    bundle.putString("answer" + i + '_' + j, question.getAnswers().get(j));
+                bundle.putInt("correct_answer" + i, question.getCorrectAnswer());
             }
             Navigation.findNavController(
                     (Activity) holder.itemView.getContext(), R.id.nav_host_fragment)

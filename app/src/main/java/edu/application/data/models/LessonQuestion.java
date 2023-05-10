@@ -1,19 +1,25 @@
 package edu.application.data.models;
 
+import java.util.List;
+
 public class LessonQuestion {
 
-    private String question, answer;
+    private String question;
+    private List<String> answers;
+    private int correctAnswer;
 
-    public LessonQuestion(String question, String answer) {
+    public LessonQuestion(String question, List<String> answers, int correctAnswer) {
         this.question = question;
-        this.answer = answer;
+        this.answers = answers;
+        this.correctAnswer = correctAnswer;
     }
 
     public String getQuestion() {
         return question;
     }
 
-    public String getAnswer() {
-        return answer;
+    public List<String> getAnswers() {
+        return answers;
     }
+    public int getCorrectAnswer() { return correctAnswer; }
 }

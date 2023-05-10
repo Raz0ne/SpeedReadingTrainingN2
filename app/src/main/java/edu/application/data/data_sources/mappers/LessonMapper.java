@@ -18,52 +18,51 @@ public class LessonMapper {
     public static Lesson getLesson(LessonEntity lessonEntity) {
         if (Objects.equals(lessonEntity.questions, ""))
             return new Lesson(lessonEntity.textName, lessonEntity.textAuthor, lessonEntity.text,
-                    lessonEntity.size, lessonEntity.ageMin, lessonEntity.ageMax, null);
+                    lessonEntity.size, lessonEntity.ageMin, null);
         return new Lesson(lessonEntity.textName, lessonEntity.textAuthor, lessonEntity.text,
-                lessonEntity.size, lessonEntity.ageMin, lessonEntity.ageMax,
-                toQuestionList(toStringList(lessonEntity.questions),
-                        toStringList(lessonEntity.answers)));
+                lessonEntity.size, lessonEntity.ageMin,
+                toQuestionListFromJson(lessonEntity.questions));
     }
 
     public static LessonEntity getLessonEntity(Lesson lessonModel) {
         if (lessonModel.getQuestions().isEmpty())
             return new LessonEntity(lessonModel.getTextName(), lessonModel.getTextAuthor(),
                     lessonModel.getText(), lessonModel.getSize(), lessonModel.getAgeMin(),
-                    lessonModel.getAgeMax(), "", "");
+                    "");
 
-        Map<String, String> questionsMap = fromQuestionList(lessonModel.getQuestions());
+        //Map<String, String> questionsMap = fromQuestionList(lessonModel.getQuestions());
 
         return new LessonEntity(lessonModel.getTextName(), lessonModel.getTextAuthor(),
                 lessonModel.getText(), lessonModel.getSize(), lessonModel.getAgeMin(),
-                lessonModel.getAgeMax(), fromStringList(new ArrayList<>(questionsMap.keySet())),
-                fromStringList(new ArrayList<>(questionsMap.values())));
+                fromQuestionListToJson(lessonModel.getQuestions()));
     }
 
-    private static String fromStringList(List<String> value) {
+    private static String fromQuestionListToJson(List<LessonQuestion> value) {
         Gson gson = new Gson();
         return gson.toJson(value);
     }
 
-    private static List<String> toStringList(String value) {
+    private static List<LessonQuestion> toQuestionListFromJson(String value) {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<String>>() {}.getType();
+        Type type = new TypeToken<List<LessonQuestion>>() {}.getType();
         return gson.fromJson(value, type);
     }
 
-    private static Map<String, String> fromQuestionList(List<LessonQuestion> lessonQuestions) {
+    /*private static Map<String, String> fromQuestionList(List<LessonQuestion> lessonQuestions) {
         Map<String, String> map = new HashMap<>();
         for (LessonQuestion question : lessonQuestions)
             map.put(question.getQuestion(), question.getAnswer());
 
         return map;
-    }
+    }*/
 
-    private static List<LessonQuestion> toQuestionList(List<String> questions,
-                                                       List<String> answers) {
+    /*private static List<LessonQuestion> toQuestionList(List<String> questions,
+                                                       List<String> answers,
+                                                       int correctAnswer) {
         List<LessonQuestion> questionsList = new ArrayList<>();
         for (int i = 0; i < questions.size(); i++)
-            questionsList.add(new LessonQuestion(questions.get(i), answers.get(i)));
+            questionsList.add(new LessonQuestion(questions.get(i), answers.get(i), ));
 
         return questionsList;
-    }
+    }*/
 }

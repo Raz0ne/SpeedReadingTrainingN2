@@ -28,6 +28,13 @@ public class AccountFragment extends Fragment {
 
         binding = FragmentAccountBinding.inflate(inflater, container, false);
 
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         binding.logoutBtn.setOnClickListener(v -> {
             SharedPreferences sharedPreferences = requireActivity().getPreferences(MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -37,7 +44,5 @@ public class AccountFragment extends Fragment {
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                     .navigate(R.id.action_accountFragment_to_loginFragment);
         });
-
-        return binding.getRoot();
     }
 }

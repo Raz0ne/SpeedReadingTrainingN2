@@ -2,6 +2,155 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/font_size_slider_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/font_size_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_settings_font_size_tv_txt"
+            android:textColor="@color/brown"
+            android:layout_margin="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_settings_font_size_slider_start"
+            android:textColor="@color/brown"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/font_size_tv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_settings_font_size_slider_end"
+            android:textColor="@color/brown"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/font_size_tv"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/font_size_slider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:valueFrom="@string/font_settings_font_size_slider_start"
+            android:valueTo="@string/font_settings_font_size_slider_end"
+            android:stepSize="2"
+            android:value="16"
+            android:contentDescription="@string/font_settings_font_size_slider_desc"
+            app:layout_constraintTop_toBottomOf="@id/font_size_tv"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/line_spacing_slider_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/font_size_slider_container"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/line_spacing_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_settings_line_spacing_tv_txt"
+            android:textColor="@color/brown"
+            android:layout_margin="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_settings_line_spacing_slider_start"
+            android:textColor="@color/brown"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_spacing_tv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_settings_line_spacing_slider_end"
+            android:textColor="@color/brown"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_spacing_tv"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/line_spacing_slider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:valueFrom="@string/font_settings_line_spacing_slider_start"
+            android:valueTo="@string/font_settings_line_spacing_slider_end"
+            android:stepSize="0.1"
+            android:value="1"
+            android:contentDescription="@string/font_settings_line_spacing_slider_desc"
+            app:layout_constraintTop_toBottomOf="@id/line_spacing_tv"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/text_alignment_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:thumbTint="@color/switch_thumb_selector"
+        app:trackTint="@color/switch_track_selector"
+        android:checked="false"
+        android:text="@string/font_settings_text_alignment_switch_txt"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toBottomOf="@id/line_spacing_slider_container"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="4dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/sample_text_cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/brown"
+        app:strokeWidth="2dp"
+        app:layout_constraintTop_toBottomOf="@id/text_alignment_switch"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/save_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="8dp">
+
+        <TextView
+            android:id="@+id/cv_text"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:gravity="center_vertical"
+            android:text="@string/font_settings_sample_text_tv_txt"
+            android:textColor="@color/brown"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1"
+            android:justificationMode="none"
+            android:background="@color/yellow_bg"
+            android:padding="8dp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="wrap_content"
+        style="@style/Base.TextAppearance.AppCompat.Button.Light"
+        android:text="@string/font_settings_save_btn_txt"
+        android:textSize="@dimen/button_small_text"
+        app:layout_constraintTop_toBottomOf="@id/sample_text_cv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

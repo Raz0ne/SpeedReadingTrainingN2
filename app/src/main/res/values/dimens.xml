@@ -2,4 +2,12 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
+
+    <!--button margins-->
+    <dimen name="button_horizontal_margin">16dp</dimen>
+    <dimen name="button_vertical_margin">8dp</dimen>
+    
+    <!-- button text size-->
+    <dimen name="button_small_text">14sp</dimen>
+    <dimen name="button_normal_text">16sp</dimen>
 </resources>

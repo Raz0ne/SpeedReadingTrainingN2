@@ -5,21 +5,24 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:id="@+id/change_password_btn"
-        android:text="@string/account_change_password_btn_txt"
-        style="@style/Base.TextAppearance.AppCompat.Button.Light"
+    <TextView
+        android:id="@+id/score_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/brown"
+        android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/logout_btn"
-        android:text="@string/account_logout_btn_txt"
+        android:id="@+id/menu_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         style="@style/Base.TextAppearance.AppCompat.Button.Light"
-        android:textColor="@color/white"
-        android:backgroundTint="@android:color/holo_red_dark"
-        app:layout_constraintTop_toBottomOf="@id/change_password_btn"
+        android:text="@string/lesson_reading_result_menu_btn_txt"
+        app:layout_constraintTop_toBottomOf="@id/score_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

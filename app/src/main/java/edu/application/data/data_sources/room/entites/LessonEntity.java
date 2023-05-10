@@ -15,23 +15,18 @@ public class LessonEntity {
     public String textName, textAuthor, text, size;
 
     @ColumnInfo
-    public int ageMin, ageMax;
+    public int ageMin;
 
     @ColumnInfo
     public String questions;
 
-    @ColumnInfo
-    public String answers;
-
-    public LessonEntity(String textName, String textAuthor, String text, String size,
-                        int ageMin, int ageMax, String questions, String answers) {
+    public LessonEntity(String textName, String textAuthor, String text, String size, int ageMin,
+                        String questions) {
         this.textName = textName;
         this.textAuthor = textAuthor;
         this.text = text;
         this.size = size;
         this.ageMin = ageMin;
-        this.ageMax = ageMax;
         this.questions = questions;
-        this.answers = answers;
     }
 }

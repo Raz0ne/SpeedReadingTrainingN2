@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import edu.application.R;
-import edu.application.databinding.FragmentLessonReadingBinding;
+import edu.application.databinding.FragmentLessonReadingResultBinding;
 
-public class LessonReadingFragment extends Fragment {
+public class LessonReadingResultFragment extends Fragment {
 
-    private FragmentLessonReadingBinding binding;
+    private FragmentLessonReadingResultBinding binding;
 
     @Nullable
     @Override
@@ -23,12 +23,12 @@ public class LessonReadingFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FragmentLessonReadingBinding.inflate(inflater, container, false);
+        binding = FragmentLessonReadingResultBinding
+                .inflate(inflater, container, false);
 
-        //Text reading
-        Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                .navigate(R.id.action_lessonReadingFragment_to_lessonReadingTextFragment,
-                        getArguments());
+        binding.menuBtn.setOnClickListener(v ->
+                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+                        .navigate(R.id.action_lessonReadingResultFragment_to_trainingFragment));
 
         return binding.getRoot();
     }

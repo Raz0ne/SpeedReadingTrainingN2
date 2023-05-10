@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SpeedReading Training</string>
 
+    <string name="tab">\u0009\u0009\u0009\u0009</string>
+
     <!--login fragment start-->
     <string name="login_text">Вход</string>
     <string name="login_email">Email</string>
@@ -28,6 +30,7 @@
     <!--bottom navigation view end-->
 
     <!--account fragment start-->
+    <string name="account_change_password_btn_txt">Сменить пароль</string>
     <string name="account_logout_btn_txt">Выйти из аккаунта</string>
     <!--account fragment end-->
 
@@ -49,4 +52,21 @@
     <string name="color_scheme_custom_save_btn_txt">Сохранить изменения</string>
     <!--color scheme custom fragment end-->
 
+    <!--font settings fragment start-->
+    <string name="font_settings_font_size_tv_txt">Размер шрифта:</string>
+    <string name="font_settings_font_size_slider_start">12</string>
+    <string name="font_settings_font_size_slider_end">24</string>
+    <string name="font_settings_font_size_slider_desc">Выберите размер шрифта</string>
+    <string name="font_settings_line_spacing_tv_txt">Межстрочный интервал:</string>
+    <string name="font_settings_line_spacing_slider_start">1</string>
+    <string name="font_settings_line_spacing_slider_end">2</string>
+    <string name="font_settings_line_spacing_slider_desc">Выберите межстрочный интервал</string>
+    <string name="font_settings_text_alignment_switch_txt">Выравнивание по ширине</string>
+    <string name="font_settings_sample_text_tv_txt">Пример текста Пример текста Пример текста Пример текста Пример текста Пример текста</string>
+    <string name="font_settings_save_btn_txt">@string/color_scheme_custom_save_btn_txt</string>
+    <!--font settings fragment end-->
+
+    <!--lesson reading result fragment start-->
+    <string name="lesson_reading_result_menu_btn_txt">В меню</string>
+    <!--lesson reading result fragment end-->
 </resources>

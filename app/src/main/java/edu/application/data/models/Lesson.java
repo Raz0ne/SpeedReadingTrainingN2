@@ -7,17 +7,16 @@ import java.util.List;
 
 public class Lesson {
     private String textName, textAuthor, text, size;
-    private int ageMin, ageMax;
+    private int ageMin;
     private List<LessonQuestion> questions;
 
     public Lesson(String textName, String textAuthor, String text, String size,
-                  int ageMin, int ageMax, @Nullable List<LessonQuestion> questions) {
+                  int ageMin, @Nullable List<LessonQuestion> questions) {
         this.textName = textName;
         this.textAuthor = textAuthor;
         this.text = text;
         this.size = size;
         this.ageMin = ageMin;
-        this.ageMax = ageMax;
         if (questions != null)
             this.questions = questions;
         else
@@ -46,9 +45,5 @@ public class Lesson {
 
     public int getAgeMin() {
         return ageMin;
-    }
-
-    public int getAgeMax() {
-        return ageMax;
     }
 }
