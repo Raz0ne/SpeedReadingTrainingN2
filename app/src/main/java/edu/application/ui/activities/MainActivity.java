@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import edu.application.R;
 import edu.application.databinding.ActivityMainBinding;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private BottomNavigationView bottomNavView;
     private SharedPreferences sharedPreferences;
+    private FirebaseAuth auth;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -57,7 +60,19 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getPreferences(MODE_PRIVATE);
         TextFormatter.setSharedPreferences(sharedPreferences);
-        if (sharedPreferences.getInt("auth", 0) == 0)
+
+        auth = FirebaseAuth.getInstance();
+
+        //if (sharedPreferences.getInt("auth", 0) == 0)
+          //  navController.navigate(R.id.action_trainingFragment_to_loginFragment);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if(currentUser == null)
             navController.navigate(R.id.action_trainingFragment_to_loginFragment);
     }
 

@@ -1,8 +1,5 @@
 package edu.application.ui.fragments;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +10,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import edu.application.R;
 import edu.application.databinding.FragmentAccountBinding;
 
 public class AccountFragment extends Fragment {
 
     private FragmentAccountBinding binding;
+    private FirebaseAuth auth;
 
     @Nullable
     @Override
@@ -27,6 +27,7 @@ public class AccountFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentAccountBinding.inflate(inflater, container, false);
+        auth = FirebaseAuth.getInstance();
 
         return binding.getRoot();
     }
@@ -36,10 +37,7 @@ public class AccountFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.logoutBtn.setOnClickListener(v -> {
-            SharedPreferences sharedPreferences = requireActivity().getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("auth", 0);
-            editor.apply();
+            auth.signOut();
 
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                     .navigate(R.id.action_accountFragment_to_loginFragment);

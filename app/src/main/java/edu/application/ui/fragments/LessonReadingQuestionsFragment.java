@@ -21,6 +21,7 @@ public class LessonReadingQuestionsFragment extends Fragment {
 
     private FragmentLessonReadingQuestionsBinding binding;
     private int questionIdx = 0;
+    private int correctAnswers = 0;
 
     @Nullable
     @Override
@@ -45,11 +46,17 @@ public class LessonReadingQuestionsFragment extends Fragment {
         }
 
         binding.answersList.setOnItemClickListener((parent, itemClicked, position, id) -> {
+            if (position + 1 == getArguments().getInt("correct_answer" + questionIdx))
+                correctAnswers++;
             questionIdx++;
-            if (questionIdx == getArguments().getInt("questions_count"))
+            if (questionIdx == getArguments().getInt("questions_count")) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("correct_answers", correctAnswers);
+                bundle.putInt("questions_cnt", getArguments().getInt("questions_count"));
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(
                         R.id.action_lessonReadingQuestionsFragment_to_lessonReadingResultFragment,
-                        getArguments());
+                        bundle);
+            }
             else {
                 answers.clear();
                 binding.questionTv.setText(getArguments().getString("question" + questionIdx));

@@ -8,7 +8,7 @@
     android:background="@color/violet">
 
     <TextView
-        android:id="@+id/login_tv"
+        android:id="@+id/register_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -41,7 +41,7 @@
         android:textSize="20sp"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/login_tv"
+        app:layout_constraintTop_toBottomOf="@id/register_tv"
         android:layout_marginTop="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -118,8 +118,18 @@
         app:layout_constraintBaseline_toBaselineOf="@id/password_repeating_et"
         app:layout_constraintRight_toRightOf="@id/password_repeating_et" />
 
+    <TextView
+        android:id="@+id/error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/password_repeating_et"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/sign_up_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register_enter_btn_txt"
@@ -129,13 +139,13 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/enter_btn"
+        android:id="@+id/sign_in_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register_login_tv_txt"
         android:layout_margin="8dp"
         android:textColor="@android:color/holo_blue_light"
-        app:layout_constraintTop_toBottomOf="@id/register_btn"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

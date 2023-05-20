@@ -32,6 +32,11 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/registerFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_registerFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -45,8 +50,8 @@
             app:popUpTo="@id/trainingFragment"
             app:popUpToInclusive="true"/>
         <action
-            android:id="@+id/action_trainingFragment_to_lessonReadingFragment"
-            app:destination="@id/lessonReadingFragment"
+            android:id="@+id/action_trainingFragment_to_preparingFragment"
+            app:destination="@id/preparingFragment"
             app:popUpTo="@id/trainingFragment"
             app:popUpToInclusive="false"/>
     </fragment>
@@ -157,5 +162,17 @@
         android:name="edu.application.ui.fragments.settings.FontSettingsFragment"
         android:label="fragment_font_settings"
         tools:layout="@layout/fragment_font_settings" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/preparingFragment"
+        android:name="edu.application.ui.fragments.PreparingFragment"
+        android:label="preparing_fragment"
+        tools:layout="@layout/fragment_preparing" >
+        <action
+            android:id="@+id/action_preparingFragment_to_lessonReadingTextFragment"
+            app:destination="@id/lessonReadingTextFragment"
+            app:popUpTo="@id/preparingFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.firebase.FirebaseApp;
+
 public class MyApplication extends Application {
 
     @SuppressLint("StaticFieldLeak")
@@ -12,6 +14,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         MyApplication.context = getApplicationContext();
+        FirebaseApp.initializeApp(this);
     }
 
     public static Context getAppContext() {

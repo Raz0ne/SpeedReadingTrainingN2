@@ -72,7 +72,7 @@ public class LessonsRecyclerViewAdapter extends
             }
             Navigation.findNavController(
                     (Activity) holder.itemView.getContext(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_trainingFragment_to_lessonReadingFragment, bundle);
+                    .navigate(R.id.action_trainingFragment_to_preparingFragment, bundle);
         });
     }
 

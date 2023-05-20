@@ -1,5 +1,6 @@
 package edu.application.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ public class LessonReadingResultFragment extends Fragment {
 
     private FragmentLessonReadingResultBinding binding;
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -25,6 +27,10 @@ public class LessonReadingResultFragment extends Fragment {
 
         binding = FragmentLessonReadingResultBinding
                 .inflate(inflater, container, false);
+
+        assert getArguments() != null;
+        binding.scoreTv.setText(String.valueOf(getArguments().getInt("correct_answers")) +
+                '/' + getArguments().getInt("questions_cnt"));
 
         binding.menuBtn.setOnClickListener(v ->
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)

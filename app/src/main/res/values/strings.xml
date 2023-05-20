@@ -7,11 +7,18 @@
     <string name="login_text">Вход</string>
     <string name="login_email">Email</string>
     <string name="login_password">Пароль</string>
-    <string name="login_password_error">Неверный пароль</string>
     <string name="login_password_forgotten">Не помню пароль</string>
     <string name="login_enter_btn_txt">Войти</string>
     <string name="login_register_tv_txt">Нет аккаунта? <u>Зарегистрируйтесь!</u></string>
     <!--login fragment end-->
+
+    <!--login error start-->
+    <string name="login_error_email_empty">Поле с email не может быть пустым</string>
+    <string name="login_error_email_incorrect">Email указан некорректно</string>
+    <string name="login_error_email_not_found">Пользователь с таким email не найден</string>
+    <string name="login_error_password_empty">Поле с паролем не может быть пустым</string>
+    <string name="login_error_password_error">Неверный пароль</string>
+    <!--login error end-->
 
     <!--register fragment start-->
     <string name="register_text">Регистрация</string>
@@ -21,6 +28,17 @@
     <string name="register_enter_btn_txt">Зарегистрироваться</string>
     <string name="register_login_tv_txt">Есть аккаунт? <u>Войти</u></string>
     <!--register fragment end-->
+
+    <!--register error start-->
+    <string name="register_error_email_empty">@string/login_error_email_empty</string>
+    <string name="register_error_email_incorrect">@string/login_error_email_incorrect</string>
+    <string name="register_error_email_already_in_use">Пользователь с таким email уже зарегистрирован</string>
+    <string name="register_error_password_empty">@string/login_error_password_empty</string>
+    <string name="register_error_passwords_not_match">Пароли не совпадают</string>
+    <string name="register_error_password_too_short">Пароль должен содержать не менее 6 символов</string>
+    <string name="register_error_password_too_long">Пароль должен содержать не более 18 символов</string>
+
+    <!--register error end-->
 
     <!--bottom navigation view start-->
     <string name="menu_timer">Тренировка</string>
