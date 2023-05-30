@@ -57,14 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavView = binding.bottomNavigation;
         NavigationUI.setupWithNavController(bottomNavView, navController);
-
         sharedPreferences = getPreferences(MODE_PRIVATE);
         TextFormatter.setSharedPreferences(sharedPreferences);
 
         auth = FirebaseAuth.getInstance();
-
-        //if (sharedPreferences.getInt("auth", 0) == 0)
-          //  navController.navigate(R.id.action_trainingFragment_to_loginFragment);
     }
 
     @Override
@@ -73,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = auth.getCurrentUser();
         if(currentUser == null)
-            navController.navigate(R.id.action_trainingFragment_to_loginFragment);
+            navController.navigate(R.id.loginFragment);
     }
 
     private void showBottomNav() {

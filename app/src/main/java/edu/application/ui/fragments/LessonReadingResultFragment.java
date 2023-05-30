@@ -29,8 +29,8 @@ public class LessonReadingResultFragment extends Fragment {
                 .inflate(inflater, container, false);
 
         assert getArguments() != null;
-        binding.scoreTv.setText(String.valueOf(getArguments().getInt("correct_answers")) +
-                '/' + getArguments().getInt("questions_cnt"));
+        binding.scoreTv.append(" " + getArguments().getInt("correct_answers") + '/' +
+                getArguments().getInt("questions_cnt"));
 
         binding.menuBtn.setOnClickListener(v ->
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)

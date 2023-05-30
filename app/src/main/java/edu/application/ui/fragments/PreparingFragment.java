@@ -2,8 +2,6 @@ package edu.application.ui.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Spannable;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +26,9 @@ public class PreparingFragment extends Fragment {
 
         @Override
         public void run() {
+            if (getActivity() == null)
+                return;
+
             if (number > 0) {
                 binding.digit.setText(String.valueOf(number));
                 handler.postDelayed(new PreparingFragment.Task(number - 1), 1000);

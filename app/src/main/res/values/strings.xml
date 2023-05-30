@@ -85,6 +85,7 @@
     <!--font settings fragment end-->
 
     <!--lesson reading result fragment start-->
+    <string name="lesson_reading_result_score_tv_txt">Результат:</string>
     <string name="lesson_reading_result_menu_btn_txt">В меню</string>
     <!--lesson reading result fragment end-->
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.method.ScrollingMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,9 @@ public class LessonReadingTextFragment extends Fragment {
 
         @Override
         public void run() {
+            if (getActivity() == null)
+                return;
+
             for (int d = -4; d <= 4; d++) {
                 try {
                     textSpannable.setSpan(new ForegroundColorSpan(colors.get(Math.abs(d))),
@@ -54,7 +58,6 @@ public class LessonReadingTextFragment extends Fragment {
         }
     }
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -65,6 +68,7 @@ public class LessonReadingTextFragment extends Fragment {
         assert getArguments() != null;
         binding.text.setText(getArguments().getString("text"));
         TextFormatter.setTextSettings(binding.text);
+        binding.text.setMovementMethod(new ScrollingMovementMethod());
 
         int textColor = binding.text.getCurrentTextColor();
         int backgroundColor = ((ColorDrawable) binding.text.getBackground()).getColor();

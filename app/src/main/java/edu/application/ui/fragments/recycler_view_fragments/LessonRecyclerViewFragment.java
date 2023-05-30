@@ -13,14 +13,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 import edu.application.R;
-import edu.application.data.models.Lesson;
-import edu.application.data.models.LessonQuestion;
 import edu.application.databinding.LessonsRecyclerViewFragmentBinding;
 import edu.application.ui.adapters.LessonsRecyclerViewAdapter;
 import edu.application.ui.view_models.LessonsRecyclerViewModel;

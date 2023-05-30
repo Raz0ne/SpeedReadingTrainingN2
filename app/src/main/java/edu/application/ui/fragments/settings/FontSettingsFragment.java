@@ -41,9 +41,9 @@ public class FontSettingsFragment extends Fragment {
         binding.fontSizeSlider.setValue(sharedPreferences.getInt("lesson_text_size", 16));
 
         binding.lineSpacingTv.setText(getText(R.string.font_settings_line_spacing_tv_txt) + " " +
-                sharedPreferences.getFloat("lesson_text_line_spacing", 1));
+                sharedPreferences.getFloat("lesson_text_line_spacing", 1.2F));
         binding.lineSpacingSlider.setValue(
-                sharedPreferences.getFloat("lesson_text_line_spacing", 1));
+                sharedPreferences.getFloat("lesson_text_line_spacing", 1.2F));
 
         binding.textAlignmentSwitch.setChecked(
                 sharedPreferences.getBoolean("lesson_text_justification", false));

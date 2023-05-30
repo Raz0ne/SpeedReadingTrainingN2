@@ -1,10 +1,6 @@
 package edu.application.ui.fragments.auth;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +11,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-
-import java.util.Objects;
 
 import edu.application.R;
 import edu.application.databinding.FragmentLoginBinding;
@@ -50,7 +41,6 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.emailEt.addTextChangedListener(new AuthTextWatcher(binding.emailTv));
         binding.passwordEt.addTextChangedListener(new AuthTextWatcher(binding.passwordTv));
 
         binding.passwordVisibilityBtn.setOnClickListener(

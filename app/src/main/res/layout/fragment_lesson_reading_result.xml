@@ -9,6 +9,7 @@
         android:id="@+id/score_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/lesson_reading_result_score_tv_txt"
         android:textColor="@color/brown"
         android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent"

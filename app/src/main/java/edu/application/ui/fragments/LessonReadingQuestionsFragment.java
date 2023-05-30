@@ -1,14 +1,15 @@
 package edu.application.ui.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -36,14 +37,22 @@ public class LessonReadingQuestionsFragment extends Fragment {
 
         ArrayList<String> answers = new ArrayList<>();
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                requireContext(), android.R.layout.simple_list_item_1, answers) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView textView = (TextView) super.getView(position, convertView, parent);
+                textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
+                return textView;
+            }
+        };
+        binding.answersList.setAdapter(adapter);
+
         binding.questionTv.setText(getArguments().getString("question" + 0));
-        for (int j = 0; j < getArguments().getInt("answers_cnt" + 0); j++) {
-            Log.d("razon", String.valueOf(j));
+        for (int j = 0; j < getArguments().getInt("answers_cnt" + 0); j++)
             answers.add(getArguments().getString("answer" + 0 + '_' + j));
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                    requireContext(), android.R.layout.simple_list_item_1, answers);
-            binding.answersList.setAdapter(adapter);
-        }
+        adapter.notifyDataSetChanged();
+
 
         binding.answersList.setOnItemClickListener((parent, itemClicked, position, id) -> {
             if (position + 1 == getArguments().getInt("correct_answer" + questionIdx))
@@ -60,12 +69,9 @@ public class LessonReadingQuestionsFragment extends Fragment {
             else {
                 answers.clear();
                 binding.questionTv.setText(getArguments().getString("question" + questionIdx));
-                for (int j = 0; j < getArguments().getInt("answers_cnt" + questionIdx); j++) {
+                for (int j = 0; j < getArguments().getInt("answers_cnt" + questionIdx); j++)
                     answers.add(getArguments().getString("answer" + questionIdx + '_' + j));
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                            requireContext(), android.R.layout.simple_list_item_1, answers);
-                    binding.answersList.setAdapter(adapter);
-                }
+                adapter.notifyDataSetChanged();
             }
         });
 
