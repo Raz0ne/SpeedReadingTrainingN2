@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import edu.application.R;
 import edu.application.data.data_sources.mappers.LessonMapper;
 import edu.application.data.data_sources.room.dao.LessonDAO;
 import edu.application.data.data_sources.room.entites.LessonEntity;

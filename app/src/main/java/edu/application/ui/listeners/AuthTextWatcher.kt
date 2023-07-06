@@ -1,27 +1,19 @@
-package edu.application.ui.listeners;
+package edu.application.ui.listeners
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 
-public class AuthTextWatcher implements TextWatcher {
+class AuthTextWatcher(private val managed: View) : TextWatcher {
 
-    private View managed;
+    override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
 
-    public AuthTextWatcher(View view) {
-        managed = view;
-    }
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        if (charSequence.length() != 0)
-            managed.setVisibility(View.VISIBLE);
+    override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+        if (charSequence.isNotEmpty())
+            managed.visibility = View.VISIBLE
         else
-            managed.setVisibility(View.INVISIBLE);
+            managed.visibility = View.INVISIBLE
     }
 
-    @Override
-    public void afterTextChanged(Editable editable) {}
+    override fun afterTextChanged(editable: Editable) {}
 }

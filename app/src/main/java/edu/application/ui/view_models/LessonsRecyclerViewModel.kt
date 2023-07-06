@@ -1,31 +1,17 @@
-package edu.application.ui.view_models;
+package edu.application.ui.view_models
 
-import android.app.Application;
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import edu.application.data.models.Lesson
+import edu.application.data.repositories.LessonsRepository
 
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
+class LessonsRecyclerViewModel(application: Application) : AndroidViewModel(application) {
 
-import java.util.List;
+    private val repo: LessonsRepository = LessonsRepository(application)
+    val items: LiveData<List<Lesson>> = repo.databaseData
 
-import edu.application.data.models.Lesson;
-import edu.application.data.repositories.LessonsRepository;
-
-public class LessonsRecyclerViewModel  extends AndroidViewModel {
-    private LessonsRepository repo;
-
-    private LiveData<List<Lesson>> mItems;
-
-    public LessonsRecyclerViewModel(Application application) {
-        super(application);
-        this.repo = new LessonsRepository(application);
-        mItems = repo.getDatabaseData();
-    }
-
-    public LiveData<List<Lesson>> getItems() {
-        return mItems;
-    }
-
-    public void addItem(Lesson lesson) {
-        repo.addItem(lesson);
+    fun addItem(lesson: Lesson) {
+        repo.addItem(lesson)
     }
 }
