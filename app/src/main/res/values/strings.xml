@@ -18,6 +18,7 @@
     <string name="login_error_email_not_found">Пользователь с таким email не найден</string>
     <string name="login_error_password_empty">Поле с паролем не может быть пустым</string>
     <string name="login_error_password_error">Неверный пароль</string>
+    <string name="login_error_password_resetting">Следуйте инструкции, отправленной на почту</string>
     <!--login error end-->
 
     <!--register fragment start-->
@@ -35,7 +36,7 @@
     <string name="register_error_email_already_in_use">Пользователь с таким email уже зарегистрирован</string>
     <string name="register_error_password_empty">@string/login_error_password_empty</string>
     <string name="register_error_passwords_not_match">Пароли не совпадают</string>
-    <string name="register_error_password_too_short">Пароль должен содержать не менее 6 символов</string>
+    <string name="register_error_weak_password">Пароль должен содержать не менее 6 символов</string>
     <string name="register_error_password_too_long">Пароль должен содержать не более 18 символов</string>
 
     <!--register error end-->
@@ -48,6 +49,7 @@
     <!--bottom navigation view end-->
 
     <!--account fragment start-->
+    <string name="account_change_email_btn_txt">Сменить email</string>
     <string name="account_change_password_btn_txt">Сменить пароль</string>
     <string name="account_logout_btn_txt">Выйти из аккаунта</string>
     <!--account fragment end-->

@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
+        android:id="@+id/change_email_btn"
+        android:text="@string/account_change_email_btn_txt"
+        style="@style/Base.TextAppearance.AppCompat.Button.Light"
+        app:icon="@drawable/baseline_alternate_email_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
         android:id="@+id/change_password_btn"
         android:text="@string/account_change_password_btn_txt"
         style="@style/Base.TextAppearance.AppCompat.Button.Light"
-        app:layout_constraintTop_toTopOf="parent"
+        app:icon="@drawable/baseline_lock_24"
+        app:layout_constraintTop_toBottomOf="@id/change_email_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -19,8 +30,12 @@
         style="@style/Base.TextAppearance.AppCompat.Button.Light"
         android:textColor="@color/white"
         android:backgroundTint="@android:color/holo_red_dark"
+        app:icon="@drawable/baseline_logout_24"
+        app:iconTint="@color/white"
+        android:paddingStart="20dp"
         app:layout_constraintTop_toBottomOf="@id/change_password_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="RtlSymmetry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,13 +38,41 @@ class LoginFragment : Fragment() {
 
         binding.passwordVisibilityBtn.setOnClickListener(
             PasswordOnClickListener(binding.passwordEt))
+
         binding.signInBtn.setOnClickListener { signInUser() }
         binding.registerBtn.setOnClickListener {
             findNavController(requireActivity(), R.id.nav_host_fragment)
                 .navigate(R.id.action_loginFragment_to_registerFragment) }
+        binding.resetPassword.setOnClickListener {resetPassword() }
+    }
+
+    private fun resetPassword() {
+        binding.errorTv.visibility = View.INVISIBLE
+
+        val email = binding.emailEt.text.toString()
+
+        if (email.isEmpty())
+            binding.errorTv.text = getString(R.string.login_error_email_empty)
+        else
+            auth.sendPasswordResetEmail(email)
+                .addOnSuccessListener {
+                    binding.errorTv.text = getString(R.string.login_error_password_resetting) }
+                .addOnFailureListener { e: Exception ->
+                    if (e is FirebaseAuthInvalidCredentialsException &&
+                        e.errorCode == "ERROR_INVALID_EMAIL")
+                        binding.errorTv.text = getString(R.string.login_error_email_incorrect)
+                    else if (e is FirebaseAuthInvalidUserException &&
+                        e.errorCode == "ERROR_USER_NOT_FOUND")
+                        binding.errorTv.text = getString(R.string.login_error_email_not_found)
+                    else
+                        Log.d("razon", e.toString()) }
+
+        binding.errorTv.visibility = View.VISIBLE
     }
 
     private fun signInUser() {
+        binding.errorTv.visibility = View.INVISIBLE
+
         val email = binding.emailEt.text.toString()
         val password = binding.passwordEt.text.toString()
 
@@ -55,8 +83,9 @@ class LoginFragment : Fragment() {
         else {
             binding.errorTv.visibility = View.INVISIBLE
             auth.signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener { findNavController(requireActivity(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_loginFragment_to_trainingFragment) }
+                .addOnSuccessListener {
+                    findNavController(requireActivity(), R.id.nav_host_fragment)
+                        .navigate(R.id.action_loginFragment_to_trainingFragment) }
                 .addOnFailureListener { e: Exception ->
                     if (e is FirebaseAuthInvalidCredentialsException &&
                         e.errorCode == "ERROR_INVALID_EMAIL")

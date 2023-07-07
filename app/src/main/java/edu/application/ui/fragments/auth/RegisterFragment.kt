@@ -51,6 +51,8 @@ class RegisterFragment : Fragment() {
     }
 
     private fun signUpUser() {
+        binding.errorTv.visibility = View.INVISIBLE
+
         val email = binding.emailEt.text.toString()
         val password = binding.passwordEt.text.toString()
 
@@ -59,7 +61,7 @@ class RegisterFragment : Fragment() {
         else if (password.isEmpty())
             binding.errorTv.text = getString(R.string.register_error_password_empty)
         else if (password.length < 6)
-            binding.errorTv.text = getString(R.string.register_error_password_too_short)
+            binding.errorTv.text = getString(R.string.register_error_weak_password)
         else if (password.length > 18)
             binding.errorTv.text = getString(R.string.register_error_password_too_long)
         else if (password != binding.passwordRepeatingEt.text.toString())
