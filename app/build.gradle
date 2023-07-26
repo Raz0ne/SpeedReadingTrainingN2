@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'com.google.android.gms.oss-licenses-plugin'
 }
 
 android {
@@ -29,13 +30,25 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     buildFeatures {
         viewBinding true
+    }
+
+    sourceSets {
+        main.res.srcDirs = [
+                file('src/main/res/layouts/fragments/account').listFiles(),
+                file('src/main/res/layouts/fragments').listFiles(),
+                file('src/main/res/layouts').listFiles(),
+                file('src/main/res')
+        ]
     }
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
@@ -76,4 +89,6 @@ dependencies {
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth'
+
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.1'
 }

@@ -37,20 +37,29 @@
     <string name="register_error_password_empty">@string/login_error_password_empty</string>
     <string name="register_error_passwords_not_match">Пароли не совпадают</string>
     <string name="register_error_weak_password">Пароль должен содержать не менее 6 символов</string>
-    <string name="register_error_password_too_long">Пароль должен содержать не более 18 символов</string>
-
+    <string name="register_error_password_too_long">Пароль должен содержать не более 16 символов</string>
     <!--register error end-->
+
+    <!--email resetting fragment start-->
+    <string name="email_resetting_text">Изменение email</string>
+    <string name="email_resetting_email">Текущий email</string>
+    <string name="email_resetting_new_email">Новый email</string>
+    <string name="email_resetting_password">@string/login_password</string>
+    <string name="email_resetting_continue_btn_txt">Продолжить</string>
+    <!--email resetting fragment end-->
 
     <!--bottom navigation view start-->
     <string name="menu_timer">Тренировка</string>
     <string name="menu_training">Упражнения</string>
-    <string name="menu_settings">Настройки</string>
     <string name="menu_account">Аккаунт</string>
     <!--bottom navigation view end-->
 
     <!--account fragment start-->
+    <string name="account_settings">Настройки</string>
     <string name="account_change_email_btn_txt">Сменить email</string>
     <string name="account_change_password_btn_txt">Сменить пароль</string>
+    <string name="account_feedback_btn_txt">Написать разработчику</string>
+    <string name="account_license_btn_txt">Лицензионное соглашение</string>
     <string name="account_logout_btn_txt">Выйти из аккаунта</string>
     <!--account fragment end-->
 
@@ -90,4 +99,11 @@
     <string name="lesson_reading_result_score_tv_txt">Результат:</string>
     <string name="lesson_reading_result_menu_btn_txt">В меню</string>
     <!--lesson reading result fragment end-->
+
+    <!--feedback start-->
+    <string name="feedback_error_email_clients_not_installed">Клиенты электронной почты не установлены.</string>
+    <string name="feedback_email_client_choosing">Что использовать?</string>
+    <string name="feedback_email">vlad.razon@mail.ru</string>
+    <string name="feedback_subject">Замечания и пожелания</string>
+    <!--feedback end-->
 </resources>

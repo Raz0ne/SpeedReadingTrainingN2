@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="edu.application.ui.fragments.auth.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_auth_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
@@ -26,7 +26,7 @@
         android:id="@+id/registerFragment"
         android:name="edu.application.ui.fragments.auth.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_auth_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -41,9 +41,9 @@
 
     <fragment
         android:id="@+id/trainingFragment"
-        android:name="edu.application.ui.fragments.TrainingFragment"
+        android:name="edu.application.ui.fragments.navigation.TrainingFragment"
         android:label="fragment_training"
-        tools:layout="@layout/fragment_training" >
+        tools:layout="@layout/fragment_navigation_training" >
         <action
             android:id="@+id/action_trainingFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -58,19 +58,29 @@
 
     <fragment
         android:id="@+id/accountFragment"
-        android:name="edu.application.ui.fragments.AccountFragment"
+        android:name="edu.application.ui.fragments.navigation.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
+        tools:layout="@layout/fragment_navigation_account" >
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/accountFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_accountFragment_to_emailResettingFragment"
+            app:destination="@id/emailResettingFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_accountFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
 
     <fragment
         android:id="@+id/lessonReadingTextFragment"
-        android:name="edu.application.ui.fragments.LessonReadingTextFragment"
+        android:name="edu.application.ui.fragments.navigation.training.lesson.LessonReadingTextFragment"
         android:label="fragment_lesson_reading_text"
         tools:layout="@layout/fragment_lesson_reading_text" >
         <action
@@ -82,7 +92,7 @@
 
     <fragment
         android:id="@+id/lessonReadingQuestionsFragment"
-        android:name="edu.application.ui.fragments.LessonReadingQuestionsFragment"
+        android:name="edu.application.ui.fragments.navigation.training.lesson.TestFragment"
         android:label="fragment_lesson_reading_questions"
         tools:layout="@layout/fragment_lesson_reading_questions" >
         <action
@@ -94,7 +104,7 @@
 
     <fragment
         android:id="@+id/lessonReadingResultFragment"
-        android:name="edu.application.ui.fragments.LessonReadingResultFragment"
+        android:name="edu.application.ui.fragments.navigation.training.lesson.ResultFragment"
         android:label="fragment_lesson_reading_result"
         tools:layout="@layout/fragment_lesson_reading_result" >
         <action
@@ -106,7 +116,7 @@
 
     <fragment
         android:id="@+id/lessonReadingFragment"
-        android:name="edu.application.ui.fragments.LessonReadingFragment"
+        android:name="edu.application.ui.fragments.navigation.training.lesson.ReadingFragment"
         android:label="fragment_lesson_reading"
         tools:layout="@layout/fragment_lesson_reading" >
         <action
@@ -118,9 +128,9 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="edu.application.ui.fragments.settings.SettingsFragment"
+        android:name="edu.application.ui.fragments.navigation.account.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
+        tools:layout="@layout/fragment_account_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_colorSchemeFragment"
             app:destination="@id/colorSchemeFragment"
@@ -135,9 +145,9 @@
 
     <fragment
         android:id="@+id/colorSchemeFragment"
-        android:name="edu.application.ui.fragments.settings.ColorSchemeFragment"
+        android:name="edu.application.ui.fragments.navigation.account.settings.ColorSchemeFragment"
         android:label="fragment_colors_scheme"
-        tools:layout="@layout/fragment_colors_scheme" >
+        tools:layout="@layout/fragment_settings_colors_scheme" >
         <action
             android:id="@+id/action_colorSchemeFragment_to_colorSchemeCustomFragment"
             app:destination="@id/colorSchemeCustomFragment"
@@ -152,27 +162,37 @@
 
     <fragment
         android:id="@+id/colorSchemeCustomFragment"
-        android:name="edu.application.ui.fragments.settings.ColorSchemeCustomFragment"
+        android:name="edu.application.ui.fragments.navigation.account.settings.ColorSchemeCustomFragment"
         android:label="fragment_colors_custom_scheme"
-        tools:layout="@layout/fragment_colors_scheme_custom" >
+        tools:layout="@layout/fragment_settings_colors_scheme_custom" >
     </fragment>
 
     <fragment
         android:id="@+id/fontSettingsFragment"
-        android:name="edu.application.ui.fragments.settings.FontSettingsFragment"
+        android:name="edu.application.ui.fragments.navigation.account.settings.FontSettingsFragment"
         android:label="fragment_font_settings"
-        tools:layout="@layout/fragment_font_settings" >
+        tools:layout="@layout/fragment_settings_font_settings" >
     </fragment>
 
     <fragment
         android:id="@+id/preparingFragment"
-        android:name="edu.application.ui.fragments.PreparingFragment"
-        android:label="preparing_fragment"
-        tools:layout="@layout/fragment_preparing" >
+        android:name="edu.application.ui.fragments.navigation.training.lesson.PreparingFragment"
+        android:label="fragment_lesson_preparing"
+        tools:layout="@layout/fragment_lesson_preparing" >
         <action
             android:id="@+id/action_preparingFragment_to_lessonReadingTextFragment"
             app:destination="@id/lessonReadingTextFragment"
             app:popUpTo="@id/preparingFragment"
             app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailResettingFragment"
+        android:name="edu.application.ui.fragments.navigation.account.EmailResettingFragment"
+        android:label="fragment_auth_email_resetting"
+        tools:layout="@layout/fragment_account_email_resetting" >
+        <action
+            android:id="@+id/action_emailResettingFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/violet">
+
+    <TextView
+        android:id="@+id/email_resetting_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/white"
+        android:text="@string/email_resetting_text"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/email_et"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/email_tv"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email_resetting_email"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/email_et"
+        app:layout_constraintStart_toStartOf="@id/email_et"
+        android:layout_marginStart="-10dp" />
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_resetting_email"
+        android:autofillHints="emailAddress"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/email_resetting_tv"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/new_email_tv"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email_resetting_new_email"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/new_email_et"
+        app:layout_constraintStart_toStartOf="@id/new_email_et"
+        android:layout_marginStart="-10dp" />
+
+    <EditText
+        android:id="@+id/new_email_et"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_resetting_new_email"
+        android:autofillHints="emailAddress"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/email_et"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/password_tv"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email_resetting_password"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/password_et"
+        app:layout_constraintStart_toStartOf="@id/password_et"
+        android:layout_marginStart="-10dp" />
+
+    <EditText
+        android:id="@+id/password_et"
+        android:layout_width="318dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_resetting_password"
+        android:autofillHints="password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:ems="16"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/new_email_et"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/email_et"/>
+
+    <Button
+        android:id="@+id/password_visibility_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/eye_closed"
+        app:backgroundTint="@color/teal_200"
+        app:layout_constraintBaseline_toBaselineOf="@id/password_et"
+        app:layout_constraintStart_toEndOf="@id/password_et" />
+
+    <TextView
+        android:id="@+id/error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/password_et"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/continue_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email_resetting_continue_btn_txt"
+        app:layout_constraintTop_toBottomOf="@id/password_et"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
