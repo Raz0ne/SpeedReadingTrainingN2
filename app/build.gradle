@@ -91,4 +91,6 @@ dependencies {
     implementation libs.firebase.auth
 
     implementation libs.aboutlibraries
+
+    implementation libs.spinKit
 }

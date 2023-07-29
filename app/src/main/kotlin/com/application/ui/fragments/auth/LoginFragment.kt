@@ -51,7 +51,10 @@ class LoginFragment : Fragment() {
     }
 
     private fun resetPassword() {
-        binding.errorTv.visibility = View.INVISIBLE
+        binding.infoTv.visibility = View.INVISIBLE
+        binding.signInBtn.visibility = View.INVISIBLE
+
+        binding.loading.visibility = View.VISIBLE
 
         val email = binding.emailEt.text.toString()
 
@@ -60,8 +63,12 @@ class LoginFragment : Fragment() {
         else
             auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener { task ->
-                    if (task.isSuccessful)
-                        binding.errorTv.text = getString(R.string.login_error_password_resetting)
+                    binding.loading.visibility = View.GONE
+
+                    if (task.isSuccessful) {
+                        binding.infoTv.text = getString(R.string.login_error_password_resetting)
+                        binding.infoTv.visibility = View.VISIBLE
+                    }
                     else {
                         val e = task.exception!!
 
@@ -75,12 +82,13 @@ class LoginFragment : Fragment() {
                             Log.d("razon", e.toString())
                     }
                 }
-
-        binding.errorTv.visibility = View.VISIBLE
     }
 
     private fun signInUser() {
-        binding.errorTv.visibility = View.INVISIBLE
+        binding.infoTv.visibility = View.INVISIBLE
+        binding.signInBtn.visibility = View.INVISIBLE
+
+        binding.loading.visibility = View.VISIBLE
 
         val email = binding.emailEt.text.toString()
         val password = binding.passwordEt.text.toString()
@@ -90,9 +98,10 @@ class LoginFragment : Fragment() {
         else if (password.isEmpty())
             binding.passwordEt.error = getString(R.string.login_error_password_empty)
         else {
-            binding.errorTv.visibility = View.INVISIBLE
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
+                    binding.loading.visibility = View.GONE
+
                     if (task.isSuccessful)
                         findNavController(requireActivity(), R.id.nav_host_fragment)
                             .navigate(R.id.action_loginFragment_to_trainingFragment)
@@ -112,11 +121,11 @@ class LoginFragment : Fragment() {
                             )
                         else
                             Log.d("razon", e.toString())
+
+                        binding.signInBtn.visibility = View.VISIBLE
                     }
                 }
         }
-
-        binding.errorTv.visibility = View.VISIBLE
     }
 
     private fun disableBackPress(lifecycleOwner: LifecycleOwner) {
