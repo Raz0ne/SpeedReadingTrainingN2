@@ -1,5 +1,6 @@
 package com.application.ui.fragments.auth
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,8 +41,7 @@ class LoginFragment : Fragment() {
         binding.passwordEt.addTextChangedListener(AuthTextWatcher(binding.passwordTv))
 
         binding.passwordVisibilityBtn.setOnClickListener(
-            PasswordOnClickListener(binding.passwordEt)
-        )
+            PasswordOnClickListener(binding.passwordEt))
 
         binding.signInBtn.setOnClickListener { signInUser() }
         binding.registerBtn.setOnClickListener {
@@ -51,80 +51,74 @@ class LoginFragment : Fragment() {
     }
 
     private fun resetPassword() {
-        binding.infoTv.visibility = View.INVISIBLE
-        binding.signInBtn.visibility = View.INVISIBLE
-
-        binding.loading.visibility = View.VISIBLE
+        hideSignInBtn()
 
         val email = binding.emailEt.text.toString()
 
-        if (email.isEmpty())
-            binding.emailEt.error = getString(R.string.login_error_email_empty)
+        if (email.isEmpty()) {
+            binding.emailEt.error = getString(R.string.auth_error_email_empty)
+            showSignInBtn()
+        }
         else
-            auth.sendPasswordResetEmail(email)
-                .addOnCompleteListener { task ->
-                    binding.loading.visibility = View.GONE
+            auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                showSignInBtn()
 
-                    if (task.isSuccessful) {
-                        binding.infoTv.text = getString(R.string.login_error_password_resetting)
-                        binding.infoTv.visibility = View.VISIBLE
-                    }
-                    else {
-                        val e = task.exception!!
+                if (task.isSuccessful)
+                    showDialog()
+                else {
+                    val e = task.exception!!
 
-                        if (e is FirebaseAuthInvalidCredentialsException &&
-                            e.errorCode == "ERROR_INVALID_EMAIL")
-                            binding.emailEt.error = getString(R.string.login_error_email_incorrect)
-                        else if (e is FirebaseAuthInvalidUserException &&
-                            e.errorCode == "ERROR_USER_NOT_FOUND")
-                            binding.emailEt.error = getString(R.string.login_error_email_not_found)
-                        else
-                            Log.d("razon", e.toString())
-                    }
+                    if (e is FirebaseAuthInvalidCredentialsException &&
+                        e.errorCode == "ERROR_INVALID_EMAIL")
+                        binding.emailEt.error = getString(R.string.auth_error_email_incorrect)
+                    else if (e is FirebaseAuthInvalidUserException &&
+                        e.errorCode == "ERROR_USER_NOT_FOUND")
+                        binding.emailEt.error = getString(R.string.auth_error_email_not_found)
+                    else
+                        Log.d("razon", e.toString())
+
                 }
+            }
     }
 
     private fun signInUser() {
-        binding.infoTv.visibility = View.INVISIBLE
-        binding.signInBtn.visibility = View.INVISIBLE
-
-        binding.loading.visibility = View.VISIBLE
+        hideSignInBtn()
 
         val email = binding.emailEt.text.toString()
         val password = binding.passwordEt.text.toString()
 
-        if (email.isEmpty())
-            binding.emailEt.error = getString(R.string.login_error_email_empty)
-        else if (password.isEmpty())
-            binding.passwordEt.error = getString(R.string.login_error_password_empty)
+        if (email.isEmpty()) {
+            binding.emailEt.error = getString(R.string.auth_error_email_empty)
+            showSignInBtn()
+        }
+        else if (password.isEmpty()) {
+            binding.passwordEt.error = getString(R.string.auth_error_password_empty)
+            showSignInBtn()
+        }
         else {
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    binding.loading.visibility = View.GONE
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                if (task.isSuccessful)
+                    findNavController(requireActivity(), R.id.nav_host_fragment)
+                        .navigate(R.id.action_loginFragment_to_trainingFragment)
+                else {
+                    val e = task.exception!!
 
-                    if (task.isSuccessful)
-                        findNavController(requireActivity(), R.id.nav_host_fragment)
-                            .navigate(R.id.action_loginFragment_to_trainingFragment)
-                    else {
-                        val e = task.exception!!
+                    if (e is FirebaseAuthInvalidCredentialsException &&
+                        e.errorCode == "ERROR_INVALID_EMAIL")
+                        binding.emailEt.error = getString(R.string.auth_error_email_incorrect)
+                    else if (e is FirebaseAuthInvalidUserException &&
+                        e.errorCode == "ERROR_USER_NOT_FOUND")
+                        binding.emailEt.error = getString(R.string.auth_error_email_not_found)
+                    else if (e is FirebaseAuthInvalidCredentialsException &&
+                        e.errorCode == "ERROR_WRONG_PASSWORD")
+                        binding.passwordEt.error = getString(
+                                R.string.auth_error_password_error)
+                    else
+                        Log.d("razon", e.toString())
 
-                        if (e is FirebaseAuthInvalidCredentialsException &&
-                            e.errorCode == "ERROR_INVALID_EMAIL")
-                            binding.emailEt.error = getString(R.string.login_error_email_incorrect)
-                        else if (e is FirebaseAuthInvalidUserException &&
-                            e.errorCode == "ERROR_USER_NOT_FOUND")
-                            binding.emailEt.error = getString(R.string.login_error_email_not_found)
-                        else if (e is FirebaseAuthInvalidCredentialsException &&
-                            e.errorCode == "ERROR_WRONG_PASSWORD")
-                            binding.passwordEt.error = getString(
-                                R.string.login_error_password_error
-                            )
-                        else
-                            Log.d("razon", e.toString())
-
-                        binding.signInBtn.visibility = View.VISIBLE
-                    }
+                    showSignInBtn()
                 }
+            }
         }
     }
 
@@ -134,5 +128,24 @@ class LoginFragment : Fragment() {
                 override fun handleOnBackPressed() {}
             }
         )
+    }
+
+    private fun hideSignInBtn() {
+        binding.loading.visibility = View.VISIBLE
+        binding.signInBtn.visibility = View.INVISIBLE
+    }
+
+    private fun showSignInBtn() {
+        binding.loading.visibility = View.GONE
+        binding.signInBtn.visibility = View.VISIBLE
+    }
+
+    private fun showDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.dialog_title_password_reset)
+            .setMessage(getString(R.string.dialog_desc_follow_instruction) + ' ' +
+                    binding.emailEt.text)
+            .setPositiveButton(R.string.dialog_pos_text_ok) { dialog, _ -> dialog.cancel() }
+            .show()
     }
 }

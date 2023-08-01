@@ -1,5 +1,6 @@
 package com.application.ui.fragments.auth
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -35,15 +36,12 @@ class RegisterFragment : Fragment() {
         binding.emailEt.addTextChangedListener(AuthTextWatcher(binding.emailTv))
         binding.passwordEt.addTextChangedListener(AuthTextWatcher(binding.passwordTv))
         binding.passwordRepeatingEt.addTextChangedListener(
-            AuthTextWatcher(binding.passwordRepeatingTv)
-        )
+            AuthTextWatcher(binding.passwordRepeatingTv))
 
         binding.passwordVisibilityBtn.setOnClickListener(
-            PasswordOnClickListener(binding.passwordEt)
-        )
+            PasswordOnClickListener(binding.passwordEt))
         binding.passwordRepeatingVisibilityBtn.setOnClickListener(
-            PasswordOnClickListener(binding.passwordRepeatingEt)
-        )
+            PasswordOnClickListener(binding.passwordRepeatingEt))
 
         binding.signUpBtn.setOnClickListener { signUpUser() }
 
@@ -53,46 +51,74 @@ class RegisterFragment : Fragment() {
     }
 
     private fun signUpUser() {
-        binding.errorTv.visibility = View.INVISIBLE
+        hideSignUpBtn()
 
         val email = binding.emailEt.text.toString()
         val password = binding.passwordEt.text.toString()
 
-        if (email.isEmpty())
-            binding.errorTv.error = getString(R.string.register_error_email_empty)
-        else if (password.isEmpty())
-            binding.errorTv.error = getString(R.string.register_error_password_empty)
-        else if (password.length < 6)
-            binding.errorTv.error = getString(R.string.register_error_weak_password)
-        else if (password.length > 16)
-            binding.errorTv.error = getString(R.string.register_error_password_too_long)
-        else if (password != binding.passwordRepeatingEt.text.toString())
-            binding.errorTv.error = getString(R.string.register_error_passwords_not_match)
-        else {
-            binding.errorTv.visibility = View.INVISIBLE
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful)
-                        findNavController(requireActivity(), R.id.nav_host_fragment)
-                            .navigate(R.id.action_registerFragment_to_trainingFragment)
-                    else {
-                        val e = task.exception!!
-
-                        if (e is FirebaseAuthInvalidCredentialsException &&
-                            e.errorCode == "ERROR_INVALID_EMAIL")
-                            binding.errorTv.error = getString(
-                                R.string.register_error_email_incorrect
-                            )
-                        else if (e is FirebaseAuthUserCollisionException)
-                            binding.errorTv.error = getString(
-                                R.string.register_error_email_already_in_use
-                            )
-                        else
-                            Log.d("razon", e.toString())
-                    }
-                }
+        if (email.isEmpty()) {
+            binding.emailEt.error = getString(R.string.auth_error_email_empty)
+            showSignUpBtn()
         }
+        else if (password.isEmpty()) {
+            binding.passwordEt.error = getString(R.string.auth_error_password_empty)
+            showSignUpBtn()
+        }
+        else if (password.length < 6) {
+            binding.passwordEt.error = getString(R.string.auth_error_weak_password)
+            showSignUpBtn()
+        }
+        else if (password.length > 16) {
+            binding.passwordEt.error = getString(R.string.auth_error_password_too_strong)
+            showSignUpBtn()
+        }
+        else if (password != binding.passwordRepeatingEt.text.toString()) {
+            binding.passwordRepeatingEt.error = getString(R.string.auth_error_passwords_not_match)
+            showSignUpBtn()
+        }
+        else {
+            auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                showSignUpBtn()
 
-        binding.errorTv.visibility = View.VISIBLE
+                if (task.isSuccessful)
+                    goToSignIn()
+                else {
+                    val e = task.exception!!
+
+                    if (e is FirebaseAuthInvalidCredentialsException &&
+                        e.errorCode == "ERROR_INVALID_EMAIL")
+                        binding.emailEt.error = getString(
+                                R.string.auth_error_email_incorrect)
+                    else if (e is FirebaseAuthUserCollisionException)
+                        binding.emailEt.error = getString(
+                                R.string.auth_error_email_already_in_use)
+                    else
+                        Log.d("razon", e.toString())
+                }
+            }
+        }
+    }
+
+    private fun hideSignUpBtn() {
+        binding.loading.visibility = View.VISIBLE
+        binding.signUpBtn.visibility = View.INVISIBLE
+    }
+
+    private fun showSignUpBtn() {
+        binding.loading.visibility = View.GONE
+        binding.signUpBtn.visibility = View.VISIBLE
+    }
+
+    private fun goToSignIn() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.dialog_title_email_confirmation)
+            .setMessage(getString(R.string.dialog_desc_follow_instruction) + ' ' + binding.emailEt.text)
+            .setPositiveButton(R.string.dialog_pos_text_ok) { dialog, _ ->
+                dialog.cancel()
+
+                findNavController(requireActivity(), R.id.nav_host_fragment)
+                    .navigate(R.id.action_registerFragment_to_loginFragment)
+            }
+            .show()
     }
 }

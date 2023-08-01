@@ -64,7 +64,6 @@
         android:autofillHints="password"
         android:inputType="textPassword"
         android:textSize="20sp"
-        android:ems="16"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/email_et"
@@ -90,21 +89,12 @@
         app:layout_constraintBottom_toTopOf="@id/password_visibility_btn"
         app:layout_constraintEnd_toEndOf="@id/password_visibility_btn" />
 
-    <TextView
-        android:id="@+id/info_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/password_et"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <Button
         android:id="@+id/sign_in_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_enter_btn_txt"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/password_et"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"

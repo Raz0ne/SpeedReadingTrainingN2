@@ -72,6 +72,11 @@
             app:popUpTo="@id/accountFragment"
             app:popUpToInclusive="false"/>
         <action
+            android:id="@+id/action_accountFragment_to_passwordResettingFragment"
+            app:destination="@id/passwordResettingFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="false"/>
+        <action
             android:id="@+id/action_accountFragment_to_settingsFragment"
             app:destination="@id/settingsFragment"
             app:popUpTo="@id/accountFragment"
@@ -130,7 +135,7 @@
         android:id="@+id/settingsFragment"
         android:name="com.application.ui.fragments.navigation.account.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_account_settings" >
+        tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_colorSchemeFragment"
             app:destination="@id/colorSchemeFragment"
@@ -190,9 +195,23 @@
         android:id="@+id/emailResettingFragment"
         android:name="com.application.ui.fragments.navigation.account.EmailResettingFragment"
         android:label="fragment_auth_email_resetting"
-        tools:layout="@layout/fragment_account_email_resetting" >
+        tools:layout="@layout/fragment_email_resetting" >
         <action
-            android:id="@+id/action_emailResettingFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
+            android:id="@+id/action_emailResettingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/emailResettingFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordResettingFragment"
+        android:name="com.application.ui.fragments.navigation.account.PasswordResettingFragment"
+        android:label="fragment_auth_email_resetting"
+        tools:layout="@layout/fragment_email_resetting" >
+        <action
+            android:id="@+id/action_passwordResettingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/passwordResettingFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

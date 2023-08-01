@@ -42,6 +42,11 @@ class AccountFragment : Fragment() {
                 .navigate(R.id.action_accountFragment_to_emailResettingFragment)
         }
 
+        binding.changePasswordBtn.setOnClickListener {
+            findNavController(requireActivity(), R.id.nav_host_fragment)
+                .navigate(R.id.action_accountFragment_to_passwordResettingFragment)
+        }
+
         binding.feedbackBtn.setOnClickListener { sendFeedback() }
 
         binding.licenseBtn.setOnClickListener {
