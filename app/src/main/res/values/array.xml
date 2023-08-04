@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dialog_items_languages">
+        <item name="dialog_item_language_system">@string/dialog_item_language_system</item>
+        <item name="dialog_item_language_english">English:en</item>
+        <item name="dialog_item_language_russian">Русский:ru</item>
+    </string-array>
+</resources>

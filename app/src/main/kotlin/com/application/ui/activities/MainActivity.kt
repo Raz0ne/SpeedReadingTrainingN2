@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -49,6 +50,14 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavView = binding.bottomNavigation
         setupWithNavController(bottomNavView, navController)
+        bottomNavView.setOnItemReselectedListener { item ->
+            navController.popBackStack(item.itemId, false)
+        }
+        bottomNavView.setOnItemSelectedListener { item ->
+            onNavDestinationSelected(item, navController)
+            true
+        }
+
         sharedPreferences = getPreferences(MODE_PRIVATE)
         TextFormatter.sharedPreferences = sharedPreferences
 
