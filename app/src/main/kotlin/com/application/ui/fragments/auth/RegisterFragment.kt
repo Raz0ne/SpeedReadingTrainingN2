@@ -111,7 +111,7 @@ class RegisterFragment : Fragment() {
 
     private fun goToSignIn() {
         AlertDialog.Builder(requireContext())
-            .setTitle(R.string.dialog_title_email_confirmation)
+            .setTitle(R.string.dialog_title_email_verification)
             .setMessage(getString(R.string.dialog_desc_follow_instruction) + ' ' + binding.emailEt.text)
             .setPositiveButton(R.string.dialog_pos_text_ok) { dialog, _ ->
                 dialog.cancel()

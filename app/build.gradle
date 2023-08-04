@@ -41,10 +41,10 @@ android {
 
     sourceSets {
         main.res.srcDirs = [
-                file('src/main/res/layouts/fragments/account/settings'),
-                file('src/main/res/layouts/fragments').listFiles(),
+                file('src/main/res'),
                 file('src/main/res/layouts').listFiles(),
-                file('src/main/res')
+                file('src/main/res/layouts/fragments').listFiles(),
+                file('src/main/res/layouts/fragments/account').listFiles()
         ]
     }
 }
