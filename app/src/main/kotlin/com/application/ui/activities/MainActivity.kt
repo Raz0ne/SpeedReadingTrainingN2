@@ -1,9 +1,8 @@
 package com.application.ui.activities
 
-import android.content.SharedPreferences
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -15,13 +14,12 @@ import com.application.R
 import com.application.databinding.ActivityMainBinding
 import com.application.ui.fragments.navigation.adapters.TextFormatter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var bottomNavView: BottomNavigationView
-    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,8 +56,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        sharedPreferences = getPreferences(MODE_PRIVATE)
-        TextFormatter.sharedPreferences = sharedPreferences
+        TextFormatter.sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE)
 
         auth = FirebaseAuth.getInstance()
     }

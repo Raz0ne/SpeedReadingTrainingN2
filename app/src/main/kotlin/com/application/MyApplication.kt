@@ -14,11 +14,6 @@ class MyApplication : Application() {
         FirebaseApp.initializeApp(this)
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-    }
-
     companion object {
         lateinit var appContext: Context
             private set
