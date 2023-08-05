@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="true">Тренировка скорочтения</string>
+    <string name="app_name">Тренировка скорочтения</string>
 
     <string name="tab" translatable="false">\u0009\u0009\u0009\u0009</string>
     
