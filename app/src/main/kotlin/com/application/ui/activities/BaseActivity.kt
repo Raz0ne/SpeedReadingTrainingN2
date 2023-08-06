@@ -2,8 +2,6 @@ package com.application.ui.activities
 
 import android.content.Context
 import android.content.ContextWrapper
-import android.content.res.Configuration
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Locale
 

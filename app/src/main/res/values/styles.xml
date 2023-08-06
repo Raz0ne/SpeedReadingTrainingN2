@@ -13,4 +13,9 @@
         <item name="android:layout_marginVertical">@dimen/button_vertical_margin</item>
         <item name="android:layout_marginHorizontal">@dimen/button_horizontal_margin</item>
     </style>
+
+    <style name="TimePickerTheme"
+        parent="android:Widget.Material.TimePicker">
+        <item name="android:numbersSelectorColor">@color/purple_200</item>
+    </style>
 </resources>

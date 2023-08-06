@@ -1,26 +1,17 @@
 package com.application.ui.fragments.navigation.account
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
-import android.content.SharedPreferences.Editor
-import android.content.res.Configuration
-import android.graphics.Bitmap.Config
-import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.application.R
 import com.application.databinding.FragmentSettingsBinding
+import com.application.ui.fragments.navigation.account.settings.ReminderTimePickerDialog
+import com.application.ui.fragments.navigation.account.settings.ReminderTimePickerFragment
 import com.application.ui.fragments.navigation.adapters.TextFormatter
-import java.util.Locale
 
 
 class SettingsFragment : Fragment() {
@@ -44,7 +35,9 @@ class SettingsFragment : Fragment() {
         binding.fontSettingsBtn.setOnClickListener {
             findNavController(requireActivity(), R.id.nav_host_fragment)
                 .navigate(R.id.action_settingsFragment_to_fontSettingsFragment) }
-        binding.notificationBtn.setOnClickListener {}
+        binding.notificationBtn.setOnClickListener {
+            ReminderTimePickerFragment()
+                .show(requireActivity().supportFragmentManager, "reminderTimePicker") }
         binding.languageBtn.setOnClickListener { chooseLanguage() }
     }
 

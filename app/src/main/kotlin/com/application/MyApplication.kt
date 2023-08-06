@@ -2,7 +2,6 @@ package com.application
 
 import android.app.Application
 import android.content.Context
-import android.content.res.Configuration
 import com.google.firebase.FirebaseApp
 
 class MyApplication : Application() {

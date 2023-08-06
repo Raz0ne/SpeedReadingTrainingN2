@@ -1,6 +1,5 @@
 package com.application.ui.activities
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
