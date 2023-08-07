@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">Тренировка скорочтения</string>
+
+    <!--auth errors start-->
+    <string name="auth_error_email_empty">Поле с email не может быть пустым</string>
+    <string name="auth_error_email_incorrect">Email указан некорректно</string>
+    <string name="auth_error_email_not_found">Пользователь с таким email не найден</string>
+    <string name="auth_error_password_empty">Поле с паролем не может быть пустым</string>
+    <string name="auth_error_password_error">Неверный пароль</string>
+    <string name="auth_error_email_already_in_use">Этот email уже используется другим аккаунтом</string>
+    <string name="auth_error_passwords_not_match">Пароль и его подтверждение должны совпадать</string>
+    <string name="auth_error_weak_password">Пароль должен содержать не менее 6 символов</string>
+    <string name="auth_error_password_too_strong">Пароль должен содержать не более 16 символов</string>
+    <string name="email_resetting_error_same_emails">Новый email не должен совпадать с текущим</string>
+    <string name="password_resetting_error_same_passwords">Новый пароль не должен совпадать с текущим</string>
+    <!--auth errors end-->
+
+    <!--login fragment start-->
+    <string name="login_text">Вход</string>
+    <string name="login_password">Пароль</string>
+    <string name="login_password_forgotten">Не помню пароль</string>
+    <string name="login_enter_btn_txt">Войти</string>
+    <string name="login_register_tv_txt">Нет аккаунта? <u>Зарегистрируйтесь!</u></string>
+    <!--login fragment end-->
+
+    <!--register fragment start-->
+    <string name="register_text">Регистрация</string>
+    <string name="register_password_repeating">Повторите пароль</string>
+    <string name="register_enter_btn_txt">Зарегистрироваться</string>
+    <string name="register_login_tv_txt">Есть аккаунт? <u>Войти</u></string>
+    <!--register fragment end-->
+
+    <!--email resetting fragment start-->
+    <string name="email_resetting_text">Изменение email</string>
+    <string name="email_resetting_email">Текущий email</string>
+    <string name="email_resetting_new_email">Новый email</string>
+    <string name="email_resetting_continue_btn_txt">Продолжить</string>
+    <!--email resetting fragment end-->
+
+    <!--password resetting fragment start-->
+    <string name="password_resetting_text">Изменение пароля</string>
+    <string name="password_resetting_password">Текущий пароль</string>
+    <string name="password_resetting_new_password">Новый пароль</string>
+    <string name="password_resetting_new_password_repeating">Повторите новый пароль</string>
+    <!--password resetting fragment end-->
+
+    <!--bottom navigation view start-->
+    <string name="menu_timer">Тренировка</string>
+    <string name="menu_training">Упражнения</string>
+    <string name="menu_account">Профиль</string>
+    <!--bottom navigation view end-->
+
+    <!--account fragment start-->
+    <string name="account_settings">Настройки</string>
+    <string name="account_change_email_btn_txt">Сменить email</string>
+    <string name="account_change_password_btn_txt">Сменить пароль</string>
+    <string name="account_feedback_btn_txt">Написать разработчику</string>
+    <string name="account_license_btn_txt">Лицензионное соглашение</string>
+    <string name="account_logout_btn_txt">Выйти из аккаунта</string>
+    <!--account fragment end-->
+
+    <!--settings fragment start-->
+    <string name="settings_color_scheme_btn_txt">Цветовая схема</string>
+    <string name="settings_font_settings_btn_txt">Шрифт</string>
+    <string name="settings_reminder_btn_txt">Напоминание</string>
+    <string name="settings_language_btn_txt">Язык</string>
+    <!--settings fragment end-->
+
+    <!--color scheme fragment start-->
+    <string name="color_scheme_light_btn_txt">Светлая</string>
+    <string name="color_scheme_custom_btn_txt">Своя</string>
+    <!--color scheme fragment end-->
+
+    <!--color scheme custom fragment start-->
+    <string name="color_scheme_custom_back_btn_desc">Назад</string>
+    <string name="color_scheme_custom_set_background_color_btn_txt">Установить\nдля фона</string>
+    <string name="color_scheme_custom_set_text_color_btn_txt">Установить\nдля текста</string>
+    <string name="color_scheme_custom_sample_text_tv_txt">Пример текста</string>
+    <string name="color_scheme_custom_save_btn_txt">Сохранить изменения</string>
+    <!--color scheme custom fragment end-->
+
+    <!--font settings fragment start-->
+    <string name="font_settings_font_size_tv_txt">Размер шрифта:</string>
+    <string name="font_settings_font_size_slider_desc">Выберите размер шрифта</string>
+    <string name="font_settings_line_spacing_tv_txt">Межстрочный интервал:</string>
+    <string name="font_settings_line_spacing_slider_desc">Выберите межстрочный интервал</string>
+    <string name="font_settings_text_alignment_switch_txt">Выравнивание по ширине</string>
+    <string name="font_settings_sample_text_tv_txt">Пример текста Пример текста Пример текста Пример текста Пример текста Пример текста</string>
+    <!--font settings fragment end-->
+
+    <!--lesson reading result fragment start-->
+    <string name="lesson_reading_result_score_tv_txt">Результат:</string>
+    <string name="lesson_reading_result_menu_btn_txt">В меню</string>
+    <!--lesson reading result fragment end-->
+
+    <!--feedback start-->
+    <string name="feedback_error_email_clients_not_installed">Клиенты электронной почты не установлены.</string>
+    <string name="feedback_email_client_choosing">Что использовать?</string>
+    <string name="feedback_subject">Замечания и пожелания</string>
+    <!--feedback end-->
+
+    <!--dialog fragments start-->
+    <string name="dialog_title_password_reset">Сброс пароля</string>
+    <string name="dialog_title_email_verification">Подтверждение почты</string>
+    <string name="dialog_title_email_changed">Email изменён</string>
+    <string name="dialog_title_password_changed">Пароль изменён</string>
+    <string name="dialog_title_language_choosing">Выберите язык</string>
+    <string name="dialog_desc_follow_instruction">Следуйте инструкции, отправленной на почту</string>
+    <string name="dialog_item_language_system">Язык системы</string>
+    <!--dialog fragments end-->
+
+    <!--reminder time picker dialog start-->
+    <string name="reminder_time_picker_dialog_mode_switch_txt">Режим</string>
+    <!--reminder time picker dialog end-->
+</resources>

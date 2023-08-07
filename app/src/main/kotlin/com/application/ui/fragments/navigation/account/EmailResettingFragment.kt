@@ -132,7 +132,7 @@ class EmailResettingFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(R.string.dialog_title_email_changed)
             .setMessage(getString(R.string.dialog_desc_follow_instruction) + ' ' + binding.emailEt.text)
-            .setPositiveButton(R.string.dialog_pos_text_ok) { dialog, _ ->
+            .setPositiveButton(android.R.string.ok) { dialog, _ ->
                 dialog.cancel()
 
                 FirebaseAuth.getInstance().signOut()

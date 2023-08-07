@@ -147,7 +147,7 @@ class PasswordResettingFragment : Fragment() {
     private fun goToSignIn() {
         AlertDialog.Builder(requireContext())
             .setTitle(R.string.dialog_title_password_changed)
-            .setPositiveButton(R.string.dialog_pos_text_ok) { dialog, _ ->
+            .setPositiveButton(android.R.string.ok) { dialog, _ ->
                 dialog.cancel()
 
                 FirebaseAuth.getInstance().signOut()

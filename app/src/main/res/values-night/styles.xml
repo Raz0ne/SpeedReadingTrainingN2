@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TimePickerTheme" parent="ThemeOverlay.Material3.MaterialTimePicker">
+        <item name="android:numbersSelectorColor">@color/purple_200</item>
+    </style>
+</resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.TextAppearance.AppCompat.Button.Light"
-        parent="TextAppearance.AppCompat.Button" >
+    <style name="Base.TextAppearance.AppCompat.Button.Light" parent="TextAppearance.AppCompat.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="iconPadding">0dp</item>
@@ -14,8 +13,8 @@
         <item name="android:layout_marginHorizontal">@dimen/button_horizontal_margin</item>
     </style>
 
-    <style name="TimePickerTheme"
-        parent="android:Widget.Material.TimePicker">
+    <style name="TimePickerTheme" parent="ThemeOverlay.Material3.MaterialTimePicker">
+        <item name="android:headerBackground">@color/purple_200</item>
         <item name="android:numbersSelectorColor">@color/purple_200</item>
     </style>
 </resources>

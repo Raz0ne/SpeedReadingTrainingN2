@@ -145,7 +145,7 @@ class LoginFragment : Fragment() {
             .setTitle(R.string.dialog_title_password_reset)
             .setMessage(getString(R.string.dialog_desc_follow_instruction) + ' ' +
                     binding.emailEt.text)
-            .setPositiveButton(R.string.dialog_pos_text_ok) { dialog, _ -> dialog.cancel() }
+            .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.cancel() }
             .show()
     }
 }

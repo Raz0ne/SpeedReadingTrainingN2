@@ -27,7 +27,7 @@ class ReminderTimePickerDialog(context: Context) : AlertDialog(context) {
 
         val isChecked = sharedPreferences.getBoolean("ReminderEnable", false)
 
-        binding.enableSwitch.isChecked = isChecked
+        binding.modeSwitch.isChecked = isChecked
 
         val calendar = Calendar.getInstance()
         val hour = sharedPreferences.getInt("ReminderHour", calendar.get(Calendar.HOUR))
@@ -43,7 +43,7 @@ class ReminderTimePickerDialog(context: Context) : AlertDialog(context) {
     }
 
     private fun save() {
-        editor.putBoolean("ReminderEnable", binding.enableSwitch.isChecked).apply()
+        editor.putBoolean("ReminderEnable", binding.modeSwitch.isChecked).apply()
         editor.putInt("ReminderHour", binding.timePicker.hour)
             .putInt("ReminderMinute", binding.timePicker.minute).apply()
 
