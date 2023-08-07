@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
-        tools:layout="@layout/fragment_training_lessons_recycler_view"
+        tools:layout="@layout/fragment_lessons_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.application.ui.fragments.navigation.training.LessonsRecyclerViewFragment"

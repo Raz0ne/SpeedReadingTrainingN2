@@ -11,7 +11,7 @@ import android.widget.CompoundButton
 import androidx.fragment.app.Fragment
 import com.google.android.material.slider.Slider
 import com.application.R
-import com.application.databinding.FragmentSettingsFontSettingsBinding
+import com.application.databinding.FragmentFontSettingsBinding
 import com.application.ui.fragments.navigation.adapters.TextFormatter.booleanToJustificationMode
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setBorder
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setTextSettings
@@ -19,14 +19,14 @@ import com.application.ui.fragments.navigation.adapters.TextFormatter.sharedPref
 
 class FontSettingsFragment : Fragment() {
 
-    private lateinit var binding: FragmentSettingsFontSettingsBinding
+    private lateinit var binding: FragmentFontSettingsBinding
     private lateinit var editor: SharedPreferences.Editor
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        binding = FragmentSettingsFontSettingsBinding.inflate(inflater, container, false)
+        binding = FragmentFontSettingsBinding.inflate(inflater, container, false)
         editor = sharedPreferences.edit()
 
         binding.fontSizeTv.text = "${getText(R.string.font_settings_font_size_tv_txt)} " +

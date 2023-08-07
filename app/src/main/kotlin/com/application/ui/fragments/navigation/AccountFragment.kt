@@ -13,17 +13,17 @@ import androidx.navigation.Navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.mikepenz.aboutlibraries.LibsBuilder
 import com.application.R
-import com.application.databinding.FragmentNavigationAccountBinding
+import com.application.databinding.FragmentAccountBinding
 
 class AccountFragment : Fragment() {
 
-    private lateinit var binding: FragmentNavigationAccountBinding
+    private lateinit var binding: FragmentAccountBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        binding = FragmentNavigationAccountBinding.inflate(inflater, container, false)
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
         auth = FirebaseAuth.getInstance()
 
         return binding.root

@@ -43,7 +43,7 @@
         android:id="@+id/trainingFragment"
         android:name="com.application.ui.fragments.navigation.TrainingFragment"
         android:label="fragment_training"
-        tools:layout="@layout/fragment_navigation_training" >
+        tools:layout="@layout/fragment_training" >
         <action
             android:id="@+id/action_trainingFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -60,7 +60,7 @@
         android:id="@+id/accountFragment"
         android:name="com.application.ui.fragments.navigation.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_navigation_account" >
+        tools:layout="@layout/fragment_account" >
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -152,7 +152,7 @@
         android:id="@+id/colorSchemeFragment"
         android:name="com.application.ui.fragments.navigation.account.settings.ColorSchemeFragment"
         android:label="fragment_colors_scheme"
-        tools:layout="@layout/fragment_settings_colors_scheme" >
+        tools:layout="@layout/fragment_colors_scheme_choosing" >
         <action
             android:id="@+id/action_colorSchemeFragment_to_colorSchemeCustomFragment"
             app:destination="@id/colorSchemeCustomFragment"
@@ -169,14 +169,14 @@
         android:id="@+id/colorSchemeCustomFragment"
         android:name="com.application.ui.fragments.navigation.account.settings.ColorSchemeCustomFragment"
         android:label="fragment_colors_custom_scheme"
-        tools:layout="@layout/fragment_settings_colors_scheme_custom" >
+        tools:layout="@layout/fragment_custom_colors_scheme" >
     </fragment>
 
     <fragment
         android:id="@+id/fontSettingsFragment"
         android:name="com.application.ui.fragments.navigation.account.settings.FontSettingsFragment"
         android:label="fragment_font_settings"
-        tools:layout="@layout/fragment_settings_font_settings" >
+        tools:layout="@layout/fragment_font_settings" >
     </fragment>
 
     <fragment

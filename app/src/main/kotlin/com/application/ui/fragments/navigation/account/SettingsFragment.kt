@@ -10,7 +10,6 @@ import androidx.navigation.Navigation.findNavController
 import com.application.R
 import com.application.databinding.FragmentSettingsBinding
 import com.application.ui.fragments.navigation.account.settings.ReminderTimePickerDialog
-import com.application.ui.fragments.navigation.account.settings.ReminderTimePickerFragment
 import com.application.ui.fragments.navigation.adapters.TextFormatter
 
 
@@ -36,8 +35,7 @@ class SettingsFragment : Fragment() {
             findNavController(requireActivity(), R.id.nav_host_fragment)
                 .navigate(R.id.action_settingsFragment_to_fontSettingsFragment) }
         binding.notificationBtn.setOnClickListener {
-            ReminderTimePickerFragment()
-                .show(requireActivity().supportFragmentManager, "reminderTimePicker") }
+            ReminderTimePickerDialog(requireContext()).show() }
         binding.languageBtn.setOnClickListener { chooseLanguage() }
     }
 
@@ -47,12 +45,11 @@ class SettingsFragment : Fragment() {
         val languages = Array(dict.size) { "" }
         val langCodes = Array(dict.size) { "" }
 
-        for (idx in dict.indices) {
+        for (idx in dict.indices)
             dict[idx].split(':').let {
                 languages[idx] = it[0]
                 langCodes[idx] = it[1]
             }
-        }
 
         val curLang = TextFormatter.sharedPreferences.getString("language", "sys")!!
 

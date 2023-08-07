@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.application.databinding.FragmentSettingsColorsSchemeCustomBinding
+import com.application.databinding.FragmentCustomColorsSchemeBinding
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setBorder
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setColor
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setTextSize
@@ -15,13 +15,13 @@ import com.application.ui.fragments.navigation.adapters.TextFormatter.sharedPref
 
 class ColorSchemeCustomFragment : Fragment() {
 
-    private lateinit var binding: FragmentSettingsColorsSchemeCustomBinding
+    private lateinit var binding: FragmentCustomColorsSchemeBinding
     private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        binding = FragmentSettingsColorsSchemeCustomBinding.inflate(inflater, container, false)
+        binding = FragmentCustomColorsSchemeBinding.inflate(inflater, container, false)
         editor = sharedPreferences.edit()
 
         binding.picker.addSVBar(binding.svBar)

@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel"
+            android:text="@android:string/cancel"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
@@ -39,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Done"
+            android:text="@android:string/ok"
             style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>

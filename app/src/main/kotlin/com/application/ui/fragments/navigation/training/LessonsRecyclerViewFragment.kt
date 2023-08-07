@@ -11,21 +11,20 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.R
 import com.application.data.models.Lesson
-import com.application.databinding.FragmentTrainingLessonsRecyclerViewBinding
+import com.application.databinding.FragmentLessonsRecyclerViewBinding
 import com.application.ui.fragments.navigation.training.adapters.LessonsRecyclerViewAdapter
 import com.application.ui.fragments.navigation.training.view_models.LessonsRecyclerViewModel
 import java.util.*
 
 class LessonsRecyclerViewFragment : Fragment() {
 
-    private lateinit var binding: FragmentTrainingLessonsRecyclerViewBinding
+    private lateinit var binding: FragmentLessonsRecyclerViewBinding
     private lateinit var viewModel: LessonsRecyclerViewModel
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        binding = FragmentTrainingLessonsRecyclerViewBinding
-            .inflate(inflater, container, false)
+        binding = FragmentLessonsRecyclerViewBinding.inflate(inflater, container, false)
 
         return binding.root
     }

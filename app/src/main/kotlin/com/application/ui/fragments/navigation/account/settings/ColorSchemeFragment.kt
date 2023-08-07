@@ -8,20 +8,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.application.R
-import com.application.databinding.FragmentSettingsColorsSchemeBinding
+import com.application.databinding.FragmentColorsSchemeChoosingBinding
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setBorder
 import com.application.ui.fragments.navigation.adapters.TextFormatter.setColor
 import com.application.ui.fragments.navigation.adapters.TextFormatter.sharedPreferences
 
 class ColorSchemeFragment : Fragment() {
 
-    private lateinit var binding: FragmentSettingsColorsSchemeBinding
+    private lateinit var binding: FragmentColorsSchemeChoosingBinding
     private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        binding = FragmentSettingsColorsSchemeBinding.inflate(inflater, container, false)
+        binding = FragmentColorsSchemeChoosingBinding.inflate(inflater, container, false)
         editor = sharedPreferences.edit()
 
         setColor(binding.customBtn)
