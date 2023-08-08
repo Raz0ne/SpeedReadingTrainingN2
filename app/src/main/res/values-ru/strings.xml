@@ -111,5 +111,7 @@
 
     <!--reminder time picker dialog start-->
     <string name="reminder_time_picker_dialog_mode_switch_txt">Режим</string>
+    <string name="toast_not_supported">Не поддерживается на вашем устройстве</string>
+    <string name="toast_permission_denied">Разрешение отклонено</string>
     <!--reminder time picker dialog end-->
 </resources>

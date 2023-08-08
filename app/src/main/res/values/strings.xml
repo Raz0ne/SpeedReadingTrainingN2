@@ -128,4 +128,9 @@
     <string name="reminder_time_picker_dialog_title" translatable="false">@string/settings_reminder_btn_txt</string>
     <string name="reminder_time_picker_dialog_mode_switch_txt">Mode</string>
     <!--reminder time picker dialog end-->
+    
+    <!--toast start-->
+    <string name="toast_not_supported">Not supported on your device</string>
+    <string name="toast_permission_denied">Permission denied</string>
+    <!--toast end-->
 </resources>

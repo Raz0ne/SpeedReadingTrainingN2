@@ -7,8 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
+import android.Manifest.permission.POST_NOTIFICATIONS
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import com.application.R
 import com.application.databinding.FragmentSettingsBinding
+import com.application.ui.activities.MainActivity
 import com.application.ui.fragments.navigation.account.settings.ReminderTimePickerDialog
 import com.application.ui.fragments.navigation.adapters.TextFormatter
 
@@ -34,8 +38,7 @@ class SettingsFragment : Fragment() {
         binding.fontSettingsBtn.setOnClickListener {
             findNavController(requireActivity(), R.id.nav_host_fragment)
                 .navigate(R.id.action_settingsFragment_to_fontSettingsFragment) }
-        binding.notificationBtn.setOnClickListener {
-            ReminderTimePickerDialog(requireContext()).show() }
+        binding.reminderBtn.setOnClickListener { showReminderDialog() }
         binding.languageBtn.setOnClickListener { chooseLanguage() }
     }
 
@@ -69,5 +72,17 @@ class SettingsFragment : Fragment() {
         editor.apply()
 
         requireActivity().recreate()
+    }
+
+    private fun showReminderDialog() {
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            if((requireActivity() as MainActivity).checkPermission(POST_NOTIFICATIONS))
+                ReminderTimePickerDialog(requireContext()).show()
+            else
+                Toast.makeText(requireContext(), R.string.toast_permission_denied, LENGTH_LONG)
+                    .show()
+        }
+        else
+            ReminderTimePickerDialog(requireContext()).show()
     }
 }

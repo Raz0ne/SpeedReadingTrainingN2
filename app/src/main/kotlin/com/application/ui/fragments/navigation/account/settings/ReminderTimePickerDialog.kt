@@ -3,8 +3,12 @@ package com.application.ui.fragments.navigation.account.settings
 import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.text.format.DateFormat
+import androidx.core.app.ActivityCompat.requestPermissions
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.application.R
 import com.application.databinding.DialogReminderTimePickerBinding
 import com.application.ui.fragments.navigation.adapters.TextFormatter.sharedPreferences

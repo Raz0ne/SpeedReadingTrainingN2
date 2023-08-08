@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/notification_btn"
+        android:id="@+id/reminder_btn"
         style="@style/Base.TextAppearance.AppCompat.Button.Light"
         app:icon="@drawable/baseline_notifications_24"
         android:text="@string/settings_reminder_btn_txt"
@@ -37,7 +37,7 @@
         style="@style/Base.TextAppearance.AppCompat.Button.Light"
         app:icon="@drawable/baseline_language_24"
         android:text="@string/settings_language_btn_txt"
-        app:layout_constraintTop_toBottomOf="@id/notification_btn"
+        app:layout_constraintTop_toBottomOf="@id/reminder_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
