@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import android.Manifest.permission.POST_NOTIFICATIONS
 import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
 import com.application.R
 import com.application.databinding.FragmentSettingsBinding
 import com.application.ui.activities.MainActivity
-import com.application.ui.fragments.navigation.account.settings.ReminderTimePickerDialog
+import com.application.ui.fragments.navigation.account.settings.ReminderDialog
 import com.application.ui.fragments.navigation.adapters.TextFormatter
 
 
@@ -54,12 +54,15 @@ class SettingsFragment : Fragment() {
                 langCodes[idx] = it[1]
             }
 
-        val curLang = TextFormatter.sharedPreferences.getString("language", "sys")!!
+        val curLangIdx = TextFormatter.sharedPreferences.getString("language", "sys")!!.let {
+            langCodes.indexOf(it)
+        }
 
         AlertDialog.Builder(requireContext())
             .setTitle(R.string.dialog_title_language_choosing)
-            .setSingleChoiceItems(languages, langCodes.indexOf(curLang)) { dialogInterface, i ->
-                setLocale(langCodes[i])
+            .setSingleChoiceItems(languages, curLangIdx) { dialogInterface, i ->
+                if (i != curLangIdx)
+                    setLocale(langCodes[i])
 
                 dialogInterface.dismiss()
             }
@@ -77,12 +80,12 @@ class SettingsFragment : Fragment() {
     private fun showReminderDialog() {
         if (android.os.Build.VERSION.SDK_INT >= 33) {
             if((requireActivity() as MainActivity).checkPermission(POST_NOTIFICATIONS))
-                ReminderTimePickerDialog(requireContext()).show()
-            else
-                Toast.makeText(requireContext(), R.string.toast_permission_denied, LENGTH_LONG)
+                ReminderDialog(requireContext()).show()
+            else if (!shouldShowRequestPermissionRationale(POST_NOTIFICATIONS))
+                Toast.makeText(requireContext(), R.string.toast_permission_denied, LENGTH_SHORT)
                     .show()
         }
         else
-            ReminderTimePickerDialog(requireContext()).show()
+            ReminderDialog(requireContext()).show()
     }
 }

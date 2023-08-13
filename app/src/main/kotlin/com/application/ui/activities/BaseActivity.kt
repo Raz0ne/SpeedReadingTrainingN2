@@ -8,13 +8,15 @@ import java.util.Locale
 open class BaseActivity : AppCompatActivity() {
 
     private fun Context.setLocale() : Context {
-        val lang = getSharedPreferences("Settings", MODE_PRIVATE)
-            .getString("language", "sys")!!
+        var lang = getSharedPreferences("Settings", MODE_PRIVATE).getString("language", "sys")!!
+        if (lang == "sys")
+            lang = Locale.getDefault().language
         val locale = Locale(lang)
-        Locale.setDefault(locale)
+
         val config = resources.configuration
         config.setLocale(locale)
         config.setLayoutDirection(locale)
+
         return createConfigurationContext(config)
     }
 

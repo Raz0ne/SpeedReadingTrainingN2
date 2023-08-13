@@ -6,7 +6,7 @@ compileSdk = "34"
 constraintlayout = "2.1.4"
 coreKtx = "1.10.1"
 espressoCore = "3.5.1"
-firebaseBom = "32.2.0"
+firebaseBom = "32.2.2"
 fragmentKtx = "1.7.0-alpha01"
 googleServices = "4.3.15"
 gson = "2.9.1"
@@ -21,6 +21,7 @@ navigationFragmentKtx = "2.6.0"
 roomRuntime = "2.5.2"
 spinkit = "1.4.0"
 targetSdk = "34"
+org-jetbrains-kotlin-android = "1.8.0"
 
 [libraries]
 aboutlibraries = { module = "com.mikepenz:aboutlibraries", version.ref = "aboutlibraries" }
@@ -52,6 +53,7 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 spinKit = { module = "com.github.ybq:Android-SpinKit", version.ref = "spinkit" }
 
 [plugins]
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
 
 [bundles]
 

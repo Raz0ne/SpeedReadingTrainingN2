@@ -111,7 +111,19 @@
 
     <!--reminder time picker dialog start-->
     <string name="reminder_time_picker_dialog_mode_switch_txt">Режим</string>
+    <!--reminder time picker dialog end-->
+
+    <!--toast start-->
     <string name="toast_not_supported">Не поддерживается на вашем устройстве</string>
     <string name="toast_permission_denied">Разрешение отклонено</string>
-    <!--reminder time picker dialog end-->
+    <!--toast end-->
+
+    <!--reminder notification start-->
+    <string name="reminder_notification_title">Напоминание</string>
+    <string name="reminder_notification_text">Пришло время для тренировки!</string>
+    <!--reminder notification end-->
+
+    <!--notification channels start-->
+    <string name="notification_channel_reminders_name">Напоминания о тренировках</string>
+    <!--notification channels end-->
 </resources>

@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.application.MyApplication.Companion.appContext
+import com.application.application.MyApplication.Companion.appContext
 import com.application.R
 
 object TextFormatter {
@@ -18,11 +18,9 @@ object TextFormatter {
 
     @JvmStatic
     fun setColor(textView: TextView) {
-        textView.setBackgroundColor(
-            sharedPreferences.getInt("lesson_background_color",
+        textView.setBackgroundColor(sharedPreferences.getInt("lesson_background_color",
             ContextCompat.getColor(appContext, R.color.yellow_bg)))
-        textView.setTextColor(
-            sharedPreferences.getInt("lesson_text_color",
+        textView.setTextColor(sharedPreferences.getInt("lesson_text_color",
             ContextCompat.getColor(appContext, R.color.brown)))
     }
 

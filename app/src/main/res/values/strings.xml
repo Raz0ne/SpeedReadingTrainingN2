@@ -133,4 +133,14 @@
     <string name="toast_not_supported">Not supported on your device</string>
     <string name="toast_permission_denied">Permission denied</string>
     <!--toast end-->
+
+    <!--reminder notification start-->
+    <string name="reminder_notification_title">Reminder</string>
+    <string name="reminder_notification_text">It\'s time for a training!</string>
+    <!--reminder notification end-->
+
+    <!--notification channels start-->
+    <string name="notification_channel_reminders_id" translatable="false">com.speedreading_training.reminder_notifications_channel</string>
+    <string name="notification_channel_reminders_name">Training reminders</string>
+    <!--notification channels end-->
 </resources>
