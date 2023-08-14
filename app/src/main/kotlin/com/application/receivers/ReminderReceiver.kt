@@ -44,11 +44,11 @@ class ReminderReceiver : BroadcastReceiver() {
             .setSmallIcon(R.drawable.outline_timer_24)
             .setLargeIcon(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.resources,
                 R.drawable.icon), 128, 128, false))
-            //.setSmallIcon(R.mipmap.ic_launcher_round)
             .setContentTitle(context.getString(R.string.reminder_notification_title))
             .setContentText(context.getString(R.string.reminder_notification_text))
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setContentIntent(pendingIntent)
 
         with(NotificationManagerCompat.from(context)) {
