@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -13,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.application.R
+import com.application.extension.setLocale
 import com.application.ui.activities.MainActivity
 import com.application.util.schedulePushNotifications
 
@@ -25,7 +27,7 @@ class ReminderReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == ACTION) {
-            showPushNotification(context)
+            showPushNotification(ContextWrapper(context.setLocale()))
 
             schedulePushNotifications(context)
         }
@@ -33,6 +35,7 @@ class ReminderReceiver : BroadcastReceiver() {
 
     private fun showPushNotification(context: Context) {
         Log.e("razon", "notification")
+
         val intent = Intent(context, MainActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }

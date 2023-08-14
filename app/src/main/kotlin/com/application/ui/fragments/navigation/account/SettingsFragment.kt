@@ -82,8 +82,7 @@ class SettingsFragment : Fragment() {
             if((requireActivity() as MainActivity).checkPermission(POST_NOTIFICATIONS))
                 ReminderDialog(requireContext()).show()
             else if (!shouldShowRequestPermissionRationale(POST_NOTIFICATIONS))
-                Toast.makeText(requireContext(), R.string.toast_permission_denied, LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireContext(), R.string.toast_permission_denied, LENGTH_SHORT).show()
         }
         else
             ReminderDialog(requireContext()).show()
