@@ -29,14 +29,12 @@
     <!--register fragment end-->
 
     <!--email resetting fragment start-->
-    <string name="email_resetting_text">Изменение email</string>
     <string name="email_resetting_email">Текущий email</string>
     <string name="email_resetting_new_email">Новый email</string>
     <string name="email_resetting_continue_btn_txt">Продолжить</string>
     <!--email resetting fragment end-->
 
     <!--password resetting fragment start-->
-    <string name="password_resetting_text">Изменение пароля</string>
     <string name="password_resetting_password">Текущий пароль</string>
     <string name="password_resetting_new_password">Новый пароль</string>
     <string name="password_resetting_new_password_repeating">Повторите новый пароль</string>
@@ -46,6 +44,8 @@
     <!--bottom navigation view end-->
 
     <!--account fragment start-->
+    <string name="account_change_email_btn_txt">Сменить email</string>
+    <string name="account_change_password_btn_txt">Сменить пароль</string>
     <string name="account_feedback_btn_txt">Написать разработчику</string>
     <string name="account_logout_btn_txt">Выйти из аккаунта</string>
     <!--account fragment end-->
@@ -61,7 +61,6 @@
     <!--color scheme fragment end-->
 
     <!--color scheme custom fragment start-->
-    <string name="color_scheme_custom_back_btn_desc">Назад</string>
     <string name="color_scheme_custom_set_background_color_btn_txt">Установить\nдля фона</string>
     <string name="color_scheme_custom_set_text_color_btn_txt">Установить\nдля текста</string>
     <string name="color_scheme_custom_sample_text_tv_txt">Пример текста</string>
@@ -119,8 +118,8 @@
     <string name="fragment_label_sign_up">Регистрация</string>
     <string name="fragment_label_training">Упражнения</string>
     <string name="fragment_label_account">Профиль</string>
-    <string name="fragment_label_change_email">Сменить email</string>
-    <string name="fragment_label_change_password">Сменить пароль</string>
+    <string name="fragment_label_change_email">Изменение email</string>
+    <string name="fragment_label_change_password">Изменение пароля</string>
     <string name="fragment_label_license">Лицензионное соглашение</string>
     <string name="fragment_label_color_scheme">Цветовая схема</string>
     <string name="fragment_label_color_scheme_custom">Своя цветовая схема</string>

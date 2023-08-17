@@ -37,9 +37,6 @@ class ColorSchemeCustomFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backBtn.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed() }
-
         binding.setBackgroundColorBtn.setOnClickListener {
             binding.picker.oldCenterColor = binding.picker.color
             binding.cvText.setBackgroundColor(binding.picker.oldCenterColor)

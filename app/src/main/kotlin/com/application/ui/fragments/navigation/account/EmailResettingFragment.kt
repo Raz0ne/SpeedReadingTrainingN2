@@ -34,9 +34,6 @@ class EmailResettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backBtn.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed() }
-
         binding.emailEt.addTextChangedListener(AuthTextWatcher(binding.emailTv))
         binding.newEmailEt.addTextChangedListener(AuthTextWatcher(binding.newEmailTv))
         binding.passwordEt.addTextChangedListener(AuthTextWatcher(binding.passwordTv))
