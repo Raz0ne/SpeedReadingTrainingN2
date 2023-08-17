@@ -17,4 +17,10 @@
         <item name="android:headerBackground">@color/purple_200</item>
         <item name="android:numbersSelectorColor">@color/purple_200</item>
     </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/gold</item>
+        <item name="colorOnPrimary">@color/brown</item>
+        <item name="android:textColorPrimary">@color/brown</item>
+    </style>
 </resources>
