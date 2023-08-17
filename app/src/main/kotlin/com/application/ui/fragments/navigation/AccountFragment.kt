@@ -51,7 +51,7 @@ class AccountFragment : Fragment() {
 
         binding.licenseBtn.setOnClickListener {
             LibsBuilder()
-                .withActivityTitle("OSS Licenses")
+                .withActivityTitle(getString(R.string.fragment_label_license))
                 .withSearchEnabled(true)
                 .start(requireContext())
         }

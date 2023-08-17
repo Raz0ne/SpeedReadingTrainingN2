@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.application.ui.fragments.auth.LoginFragment"
-        android:label="fragment_login"
+        android:label="@string/fragment_label_sign_in"
         tools:layout="@layout/fragment_auth_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.application.ui.fragments.auth.RegisterFragment"
-        android:label="fragment_register"
+        android:label="@string/fragment_label_sign_up"
         tools:layout="@layout/fragment_auth_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
@@ -42,7 +42,7 @@
     <fragment
         android:id="@+id/trainingFragment"
         android:name="com.application.ui.fragments.navigation.TrainingFragment"
-        android:label="fragment_training"
+        android:label="@string/fragment_label_training"
         tools:layout="@layout/fragment_training" >
         <action
             android:id="@+id/action_trainingFragment_to_loginFragment"
@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.application.ui.fragments.navigation.AccountFragment"
-        android:label="fragment_account"
+        android:label="@string/fragment_label_account"
         tools:layout="@layout/fragment_account" >
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
@@ -134,7 +134,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.application.ui.fragments.navigation.account.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="@string/account_settings"
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_colorSchemeFragment"
@@ -151,7 +151,7 @@
     <fragment
         android:id="@+id/colorSchemeFragment"
         android:name="com.application.ui.fragments.navigation.account.settings.ColorSchemeFragment"
-        android:label="fragment_colors_scheme"
+        android:label="@string/fragment_label_color_scheme"
         tools:layout="@layout/fragment_colors_scheme_choosing" >
         <action
             android:id="@+id/action_colorSchemeFragment_to_colorSchemeCustomFragment"
@@ -168,14 +168,14 @@
     <fragment
         android:id="@+id/colorSchemeCustomFragment"
         android:name="com.application.ui.fragments.navigation.account.settings.ColorSchemeCustomFragment"
-        android:label="fragment_colors_custom_scheme"
+        android:label="@string/fragment_label_color_scheme_custom"
         tools:layout="@layout/fragment_custom_colors_scheme" >
     </fragment>
 
     <fragment
         android:id="@+id/fontSettingsFragment"
         android:name="com.application.ui.fragments.navigation.account.settings.FontSettingsFragment"
-        android:label="fragment_font_settings"
+        android:label="@string/fragment_label_font_settings"
         tools:layout="@layout/fragment_font_settings" >
     </fragment>
 
@@ -194,7 +194,7 @@
     <fragment
         android:id="@+id/emailResettingFragment"
         android:name="com.application.ui.fragments.navigation.account.EmailResettingFragment"
-        android:label="fragment_auth_email_resetting"
+        android:label="@string/fragment_label_change_email"
         tools:layout="@layout/fragment_email_resetting" >
         <action
             android:id="@+id/action_emailResettingFragment_to_loginFragment"
@@ -206,7 +206,7 @@
     <fragment
         android:id="@+id/passwordResettingFragment"
         android:name="com.application.ui.fragments.navigation.account.PasswordResettingFragment"
-        android:label="fragment_auth_email_resetting"
+        android:label="@string/fragment_label_change_password"
         tools:layout="@layout/fragment_email_resetting" >
         <action
             android:id="@+id/action_passwordResettingFragment_to_loginFragment"

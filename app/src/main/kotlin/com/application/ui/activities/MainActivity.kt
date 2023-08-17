@@ -5,11 +5,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.forEach
+import androidx.core.view.iterator
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.application.R
@@ -46,6 +51,20 @@ class MainActivity : BaseActivity() {
 
                 else -> hideBottomNav()
             }
+
+            when (navDestination.id) {
+                R.id.trainingFragment,
+                R.id.settingsFragment,
+                R.id.colorSchemeFragment,
+                R.id.colorSchemeCustomFragment,
+                R.id.fontSettingsFragment,
+                R.id.accountFragment,
+                R.id.emailResettingFragment,
+                R.id.passwordResettingFragment ->
+                    showToolbar()
+
+                else -> hideToolbar()
+            }
         }
 
         bottomNavView = binding.bottomNavigation
@@ -56,6 +75,11 @@ class MainActivity : BaseActivity() {
         bottomNavView.setOnItemSelectedListener { item ->
             onNavDestinationSelected(item, navController)
             true
+        }
+
+        setSupportActionBar(binding.toolbar)
+        with(AppBarConfiguration(binding.bottomNavigation.menu)) {
+            binding.toolbar.setupWithNavController(navController, this)
         }
 
         TextFormatter.sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE)
@@ -77,6 +101,14 @@ class MainActivity : BaseActivity() {
 
     private fun hideBottomNav() {
         binding.bottomNavigation.visibility = View.GONE
+    }
+
+    private fun showToolbar() {
+        binding.toolbar.visibility = View.VISIBLE
+    }
+
+    private fun hideToolbar() {
+        binding.toolbar.visibility = View.GONE
     }
 
     fun checkPermission(permission: String) : Boolean {
