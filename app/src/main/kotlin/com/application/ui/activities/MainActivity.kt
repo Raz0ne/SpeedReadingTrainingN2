@@ -68,18 +68,19 @@ class MainActivity : BaseActivity() {
         }
 
         bottomNavView = binding.bottomNavigation
-        setupWithNavController(bottomNavView, navController)
+
+        setSupportActionBar(binding.toolbar)
+        with(AppBarConfiguration(bottomNavView.menu)) {
+            binding.toolbar.setupWithNavController(navController, this)
+        }
+
+        bottomNavView.setupWithNavController(navController)
         bottomNavView.setOnItemReselectedListener { item ->
             navController.popBackStack(item.itemId, false)
         }
         bottomNavView.setOnItemSelectedListener { item ->
             onNavDestinationSelected(item, navController)
             true
-        }
-
-        setSupportActionBar(binding.toolbar)
-        with(AppBarConfiguration(binding.bottomNavigation.menu)) {
-            binding.toolbar.setupWithNavController(navController, this)
         }
 
         TextFormatter.sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE)
@@ -105,14 +106,15 @@ class MainActivity : BaseActivity() {
 
     private fun showToolbar() {
         binding.toolbar.visibility = View.VISIBLE
+        title = navController.currentDestination!!.label
     }
 
     private fun hideToolbar() {
         binding.toolbar.visibility = View.GONE
     }
 
-    fun checkPermission(permission: String) : Boolean {
-        return if (ContextCompat.checkSelfPermission(this, permission) ==
+    fun checkPermission(permission: String) : Boolean =
+        if (ContextCompat.checkSelfPermission(this, permission) ==
             PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, arrayOf(permission), 1)
 
@@ -120,5 +122,4 @@ class MainActivity : BaseActivity() {
                     PackageManager.PERMISSION_GRANTED
         } else
             true
-    }
 }
