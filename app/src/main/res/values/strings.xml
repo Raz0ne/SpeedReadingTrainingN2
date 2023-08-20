@@ -48,6 +48,7 @@
     <string name="auth_error_passwords_not_match">Password and its confirmation must match</string>
     <string name="auth_error_weak_password">Passwords must contain at least 6 characters</string>
     <string name="auth_error_password_too_strong">Passwords must contain at most 16 characters</string>
+    <string name="auth_error_email_not_verified">Email is not verified</string>
     <string name="email_resetting_error_same_emails">New email must not be the same as the current email</string>
     <string name="password_resetting_error_same_passwords">New password must not be the same as the current password</string>
     <!--auth errors end-->

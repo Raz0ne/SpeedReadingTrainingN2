@@ -91,7 +91,7 @@ class MainActivity : BaseActivity() {
     override fun onStart() {
         super.onStart()
 
-        val currentUser = auth.currentUser
+        val currentUser = auth.currentUser?.reload()
         if (currentUser == null)
             navController.navigate(R.id.loginFragment)
     }

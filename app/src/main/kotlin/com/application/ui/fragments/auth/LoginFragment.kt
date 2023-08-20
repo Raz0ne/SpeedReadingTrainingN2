@@ -97,9 +97,18 @@ class LoginFragment : Fragment() {
         }
         else {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                if (task.isSuccessful)
-                    findNavController(requireActivity(), R.id.nav_host_fragment)
-                        .navigate(R.id.action_loginFragment_to_trainingFragment)
+                if (task.isSuccessful) {
+                    if (auth.currentUser!!.isEmailVerified)
+                        findNavController(requireActivity(), R.id.nav_host_fragment)
+                            .navigate(R.id.action_loginFragment_to_trainingFragment)
+                    else {
+                        binding.emailEt.error = getString(R.string.auth_error_email_not_verified)
+
+                        auth.signOut()
+
+                        showSignInBtn()
+                    }
+                }
                 else {
                     val e = task.exception!!
 
@@ -115,6 +124,8 @@ class LoginFragment : Fragment() {
                                 R.string.auth_error_password_error)
                     else
                         Log.d("razon", e.toString())
+
+                    auth.signOut()
 
                     showSignInBtn()
                 }

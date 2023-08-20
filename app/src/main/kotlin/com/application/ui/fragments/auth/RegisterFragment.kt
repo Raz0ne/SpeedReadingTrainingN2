@@ -80,8 +80,12 @@ class RegisterFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 showSignUpBtn()
 
-                if (task.isSuccessful)
+                if (task.isSuccessful) {
+                    auth.currentUser?.sendEmailVerification()
+                    auth.signOut()
+
                     goToSignIn()
+                }
                 else {
                     val e = task.exception!!
 

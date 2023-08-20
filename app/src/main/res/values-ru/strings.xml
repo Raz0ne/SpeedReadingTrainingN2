@@ -29,14 +29,13 @@
     <!--register fragment end-->
 
     <!--email resetting fragment start-->
-    <string name="email_resetting_text">Изменение email</string>
+    <string name="auth_error_email_not_verified">Email не подтверждён</string>
     <string name="email_resetting_email">Текущий email</string>
     <string name="email_resetting_new_email">Новый email</string>
     <string name="email_resetting_continue_btn_txt">Продолжить</string>
     <!--email resetting fragment end-->
 
     <!--password resetting fragment start-->
-    <string name="password_resetting_text">Изменение пароля</string>
     <string name="password_resetting_password">Текущий пароль</string>
     <string name="password_resetting_new_password">Новый пароль</string>
     <string name="password_resetting_new_password_repeating">Повторите новый пароль</string>
@@ -63,7 +62,6 @@
     <!--color scheme fragment end-->
 
     <!--color scheme custom fragment start-->
-    <string name="color_scheme_custom_back_btn_desc">Назад</string>
     <string name="color_scheme_custom_set_background_color_btn_txt">Установить\nдля фона</string>
     <string name="color_scheme_custom_set_text_color_btn_txt">Установить\nдля текста</string>
     <string name="color_scheme_custom_sample_text_tv_txt">Пример текста</string>
