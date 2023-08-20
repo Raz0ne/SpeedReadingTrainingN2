@@ -5,21 +5,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.forEach
-import androidx.core.view.iterator
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
-import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.application.R
 import com.application.databinding.ActivityMainBinding
 import com.application.ui.fragments.navigation.adapters.TextFormatter
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : BaseActivity() {
 
@@ -85,7 +83,7 @@ class MainActivity : BaseActivity() {
 
         TextFormatter.sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE)
 
-        auth = FirebaseAuth.getInstance()
+        auth = Firebase.auth
     }
 
     override fun onStart() {
