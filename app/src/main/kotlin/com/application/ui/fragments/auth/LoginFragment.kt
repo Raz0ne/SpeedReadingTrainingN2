@@ -17,6 +17,8 @@ import com.application.R
 import com.application.databinding.FragmentAuthLoginBinding
 import com.application.ui.fragments.auth.listeners.AuthTextWatcher
 import com.application.ui.fragments.auth.listeners.PasswordOnClickListener
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
 
@@ -27,7 +29,7 @@ class LoginFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = FragmentAuthLoginBinding.inflate(inflater, container, false)
-        auth = FirebaseAuth.getInstance()
+        auth = Firebase.auth
 
         return binding.root
     }
