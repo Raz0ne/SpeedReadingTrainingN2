@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.mikepenz.aboutlibraries.LibsBuilder
 import com.application.R
 import com.application.databinding.FragmentAccountBinding
+import com.application.ui.fragments.navigation.adapters.TextFormatter
+import com.application.util.cancelAlarm
 
 class AccountFragment : Fragment() {
 
@@ -56,12 +58,7 @@ class AccountFragment : Fragment() {
                 .start(requireContext())
         }
 
-        binding.logoutBtn.setOnClickListener {
-            auth.signOut()
-
-            findNavController(requireActivity(), R.id.nav_host_fragment)
-                .navigate(R.id.action_accountFragment_to_loginFragment)
-        }
+        binding.logoutBtn.setOnClickListener { signOut() }
     }
 
     private fun sendFeedback() {
@@ -75,5 +72,15 @@ class AccountFragment : Fragment() {
             Toast.makeText(requireContext(), getString(R.string.feedback_error_email_clients_not_installed),
                 Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun signOut() {
+        TextFormatter.sharedPreferences.edit().clear().apply()
+        cancelAlarm(requireContext())
+
+        auth.signOut()
+
+        findNavController(requireActivity(), R.id.nav_host_fragment)
+            .navigate(R.id.action_accountFragment_to_loginFragment)
     }
 }

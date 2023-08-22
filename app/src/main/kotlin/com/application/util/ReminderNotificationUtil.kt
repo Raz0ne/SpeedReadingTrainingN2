@@ -15,13 +15,14 @@ fun schedulePushNotifications(context: Context) {
     val alarmPendingIntent = PendingIntent.getBroadcast(context, 0, intent,
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
+    alarmManager.cancel(alarmPendingIntent)
+
     var hour: Int
     var minute: Int
     with(context.getSharedPreferences("Settings", Context.MODE_PRIVATE)) {
         hour = getInt("ReminderHour", 0)
         minute = getInt("ReminderMinute", 0)
     }
-    alarmManager.cancel(alarmPendingIntent)
 
     val calendar = Calendar.getInstance().apply {
         set(Calendar.HOUR_OF_DAY, hour)

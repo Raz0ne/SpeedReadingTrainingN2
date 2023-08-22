@@ -2,6 +2,10 @@
 <resources>
     <string name="app_name">SpeedReading Training</string>
 
+    <!--config start-->
+    <string name="config_web_client_id" translatable="false">975665956532-rfqheqe2eftjs9ie4g3bhaqqt7q49438.apps.googleusercontent.com</string>
+    <!--config end-->
+
     <string name="tab" translatable="false">\u0009\u0009\u0009\u0009</string>
 
     <!--toast start-->

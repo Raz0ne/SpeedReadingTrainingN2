@@ -19,6 +19,7 @@ lifecycleLivedataKtx = "2.6.1"
 material = "1.9.0"
 minSdk = "28"
 navigationFragmentKtx = "2.7.0"
+playServicesAuth = "20.6.0"
 roomRuntime = "2.5.2"
 spinkit = "1.4.0"
 targetSdk = "34"
@@ -51,6 +52,7 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 holoColorPicker = { module = "com.larswerkman:HoloColorPicker", version.ref = "holoColorPicker" }
 junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 spinKit = { module = "com.github.ybq:Android-SpinKit", version.ref = "spinkit" }
 
 [plugins]
