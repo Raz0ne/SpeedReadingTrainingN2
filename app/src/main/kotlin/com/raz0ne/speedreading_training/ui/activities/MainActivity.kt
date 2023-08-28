@@ -22,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 import com.raz0ne.speedreading_training.extension.setLocale
 import com.raz0ne.speedreading_training.ui.navigation.BottomNavigationBar
 import com.raz0ne.speedreading_training.ui.navigation.Navigation
+import com.raz0ne.speedreading_training.ui.navigation.TopBar
 import com.raz0ne.speedreading_training.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -125,7 +126,7 @@ class MainActivity : ComponentActivity() {
 private fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(
-        //topBar = { TopBar() },
+        topBar = { TopBar() },
         bottomBar = { BottomNavigationBar(navController) },
         backgroundColor = MaterialTheme.colors.background
     ) { padding ->
