@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.application.ui.fragments.auth.LoginFragment"
+        android:name="com.speedreading_training.ui.fragments.auth.LoginFragment"
         android:label="@string/fragment_label_sign_in"
         tools:layout="@layout/fragment_auth_login" >
         <action
@@ -18,13 +18,13 @@
         <action
             android:id="@+id/action_loginFragment_to_trainingFragment"
             app:destination="@id/trainingFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.application.ui.fragments.auth.RegisterFragment"
+        android:name="com.speedreading_training.ui.fragments.auth.RegisterFragment"
         android:label="@string/fragment_label_sign_up"
         tools:layout="@layout/fragment_auth_register" >
         <action
@@ -41,13 +41,13 @@
 
     <fragment
         android:id="@+id/trainingFragment"
-        android:name="com.application.ui.fragments.navigation.TrainingFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.TrainingFragment"
         android:label="@string/fragment_label_training"
         tools:layout="@layout/fragment_training" >
         <action
             android:id="@+id/action_trainingFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/trainingFragment"
+            app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_trainingFragment_to_preparingFragment"
@@ -58,13 +58,13 @@
 
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.application.ui.fragments.navigation.AccountFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.AccountFragment"
         android:label="@string/fragment_label_account"
         tools:layout="@layout/fragment_account" >
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/accountFragment"
+            app:popUpTo="@id/trainingFragment"
             app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_accountFragment_to_emailResettingFragment"
@@ -85,7 +85,7 @@
 
     <fragment
         android:id="@+id/lessonReadingTextFragment"
-        android:name="com.application.ui.fragments.navigation.training.lesson.LessonReadingTextFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.training.lesson.LessonReadingTextFragment"
         android:label="fragment_lesson_reading_text"
         tools:layout="@layout/fragment_lesson_reading_text" >
         <action
@@ -97,7 +97,7 @@
 
     <fragment
         android:id="@+id/lessonReadingQuestionsFragment"
-        android:name="com.application.ui.fragments.navigation.training.lesson.TestFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.training.lesson.TestFragment"
         android:label="fragment_lesson_reading_questions"
         tools:layout="@layout/fragment_lesson_reading_questions" >
         <action
@@ -109,7 +109,7 @@
 
     <fragment
         android:id="@+id/lessonReadingResultFragment"
-        android:name="com.application.ui.fragments.navigation.training.lesson.ResultFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.training.lesson.ResultFragment"
         android:label="fragment_lesson_reading_result"
         tools:layout="@layout/fragment_lesson_reading_result" >
         <action
@@ -121,7 +121,7 @@
 
     <fragment
         android:id="@+id/lessonReadingFragment"
-        android:name="com.application.ui.fragments.navigation.training.lesson.ReadingFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.training.lesson.ReadingFragment"
         android:label="fragment_lesson_reading"
         tools:layout="@layout/fragment_lesson_reading" >
         <action
@@ -133,7 +133,7 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.application.ui.fragments.navigation.account.SettingsFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.account.SettingsFragment"
         android:label="@string/account_settings"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -150,7 +150,7 @@
 
     <fragment
         android:id="@+id/colorSchemeFragment"
-        android:name="com.application.ui.fragments.navigation.account.settings.ColorSchemeFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.account.settings.ColorSchemeFragment"
         android:label="@string/fragment_label_color_scheme"
         tools:layout="@layout/fragment_colors_scheme_choosing" >
         <action
@@ -167,21 +167,21 @@
 
     <fragment
         android:id="@+id/colorSchemeCustomFragment"
-        android:name="com.application.ui.fragments.navigation.account.settings.ColorSchemeCustomFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.account.settings.ColorSchemeCustomFragment"
         android:label="@string/fragment_label_color_scheme_custom"
         tools:layout="@layout/fragment_custom_colors_scheme" >
     </fragment>
 
     <fragment
         android:id="@+id/fontSettingsFragment"
-        android:name="com.application.ui.fragments.navigation.account.settings.FontSettingsFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.account.settings.FontSettingsFragment"
         android:label="@string/fragment_label_font_settings"
         tools:layout="@layout/fragment_font_settings" >
     </fragment>
 
     <fragment
         android:id="@+id/preparingFragment"
-        android:name="com.application.ui.fragments.navigation.training.lesson.PreparingFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.training.lesson.PreparingFragment"
         android:label="fragment_lesson_preparing"
         tools:layout="@layout/fragment_lesson_preparing" >
         <action
@@ -193,7 +193,7 @@
 
     <fragment
         android:id="@+id/emailResettingFragment"
-        android:name="com.application.ui.fragments.navigation.account.EmailResettingFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.account.EmailResettingFragment"
         android:label="@string/fragment_label_change_email"
         tools:layout="@layout/fragment_email_resetting" >
         <action
@@ -205,9 +205,9 @@
 
     <fragment
         android:id="@+id/passwordResettingFragment"
-        android:name="com.application.ui.fragments.navigation.account.PasswordResettingFragment"
+        android:name="com.speedreading_training.ui.fragments.screens.account.PasswordResettingFragment"
         android:label="@string/fragment_label_change_password"
-        tools:layout="@layout/fragment_email_resetting" >
+        tools:layout="@layout/fragment_password_resetting" >
         <action
             android:id="@+id/action_passwordResettingFragment_to_loginFragment"
             app:destination="@id/loginFragment"

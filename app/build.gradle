@@ -1,95 +1,116 @@
 plugins {
-    id 'com.android.application'
+    alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    id 'com.google.gms.google-services'
-    id 'com.mikepenz.aboutlibraries.plugin'
-    id 'kotlin-parcelize'
+    id("com.google.gms.google-services")
+    id("com.mikepenz.aboutlibraries.plugin")
+    id("kotlin-parcelize")
 }
 
 android {
-    namespace 'com.application'
-    compileSdk libs.versions.compileSdk.get().toInteger()
+    namespace = "com.raz0ne.speedreading_training"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        applicationId "com.application"
-        minSdk libs.versions.minSdk.get().toInteger()
-        targetSdk libs.versions.targetSdk.get().toInteger()
-        versionCode 1
-        versionName "1.0"
-        resConfigs "en", "ru"
+        applicationId = "com.raz0ne.speedreading_training"
+        minSdk = libs.versions.minSdk.get().toInteger()
+        targetSdk = libs.versions.targetSdk.get().toInteger()
+        versionCode = 1
+        versionName = "1.0"
+        resourceConfigurations += ['en', 'ru']
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
 
     buildFeatures {
-        viewBinding true
+        viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
     }
 
     sourceSets {
         main.res.srcDirs = [
-                file('src/main/res'),
-                file('src/main/res/layouts').listFiles(),
-                file('src/main/res/layouts/fragments').listFiles(),
-                file('src/main/res/layouts/fragments/account').listFiles()
+                file("src/main/res"),
+                file("src/main/res/layouts").listFiles(),
+                file("src/main/res/layouts/fragments").listFiles(),
+                file("src/main/res/layouts/fragments/account").listFiles()
         ]
     }
 }
 
 dependencies {
-    implementation libs.androidx.core.ktx
-    implementation libs.androidx.appcompat
-    implementation libs.material
-    implementation libs.androidx.constraintlayout
-    implementation libs.androidx.annotation
-    implementation libs.androidx.lifecycle.livedata.ktx
-    implementation libs.androidx.lifecycle.viewmodel.ktx
-    testImplementation libs.junit
-    androidTestImplementation libs.androidx.junit
-    androidTestImplementation libs.androidx.espresso.core
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation libs.androidx.navigation.fragment.ktx
-    implementation libs.androidx.navigation.ui.ktx
-    implementation libs.androidx.navigation.dynamic.features.fragment
-    androidTestImplementation libs.androidx.navigation.testing
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.dynamic.features.fragment)
+    androidTestImplementation(libs.androidx.navigation.testing)
 
-    implementation libs.androidx.fragment.ktx
+    implementation(libs.androidx.fragment.ktx)
 
-    implementation platform(libs.androidx.kotlin.bom)
+    implementation(platform(libs.androidx.kotlin.bom))
 
     // Room components
-    implementation libs.androidx.room.runtime
-    annotationProcessor libs.androidx.room.compiler
-    androidTestImplementation libs.androidx.room.testing
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    androidTestImplementation(libs.androidx.room.testing)
 
     // Lifecycle components
-    implementation libs.androidx.lifecycle.viewmodel.ktx
-    implementation libs.androidx.lifecycle.livedata.ktx
-    implementation libs.androidx.lifecycle.common.java8
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.common.java8)
 
-    implementation libs.gson
+    implementation(libs.gson)
 
-    implementation libs.holoColorPicker
+    implementation(libs.holoColorPicker)
 
-    implementation platform(libs.firebase.bom)
-    implementation libs.firebase.auth.ktx
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
     implementation(libs.play.services.auth)
 
-    implementation libs.aboutlibraries
+    implementation(libs.aboutlibraries)
 
-    implementation libs.spinKit
+    implementation(libs.spinKit)
+
+    // Compose
+    implementation(libs.androidx.runtime)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.foundation.layout)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.runtime.livedata)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.tooling.preview)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
+
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
 }

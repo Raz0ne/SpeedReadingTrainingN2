@@ -41,6 +41,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975665956532:android:a7e4959bc5358325b679e1",
+        "android_client_info": {
+          "package_name": "com.raz0ne.speedreading_training"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975665956532-nj6ouq2dngfqpkidcerj6ma5j2hqhhb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raz0ne.speedreading_training",
+            "certificate_hash": "da8675fa548935a18bc1ef90525350831fd2ff59"
+          }
+        },
+        {
+          "client_id": "975665956532-rfqheqe2eftjs9ie4g3bhaqqt7q49438.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvsVoDEYIEzulLFGN6sq56DImtT-54uHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975665956532-rfqheqe2eftjs9ie4g3bhaqqt7q49438.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
