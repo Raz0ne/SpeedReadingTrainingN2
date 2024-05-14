@@ -4,6 +4,8 @@ plugins {
     id("com.google.gms.google-services")
     id("com.mikepenz.aboutlibraries.plugin")
     id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -78,8 +80,11 @@ dependencies {
 
     // Room components
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.runtime.livedata)
     annotationProcessor(libs.androidx.room.compiler)
     androidTestImplementation(libs.androidx.room.testing)
+    kapt(libs.androidx.room.compiler)
 
     // Lifecycle components
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -98,7 +103,7 @@ dependencies {
 
     implementation(libs.spinKit)
 
-    // Compose
+    //Compose
     implementation(libs.androidx.runtime)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.foundation)
@@ -113,4 +118,11 @@ dependencies {
 
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
+
+    //JSON
+    implementation(libs.kotlinx.serialization.json)
+
+    //Kotlin coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 }

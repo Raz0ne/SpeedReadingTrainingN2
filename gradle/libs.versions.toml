@@ -22,6 +22,9 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 kotlin = "1.9.0"
 kotlinCompilerExtensionVersion = "1.5.2"
+kotlinxCoroutinesAndroid = "1.7.2"
+kotlinxCoroutinesCore = "1.6.1"
+kotlinxSerializationJson = "1.6.0"
 lifecycleLivedataKtx = "2.6.1"
 material = "1.9.0"
 minSdk = "28"
@@ -60,6 +63,7 @@ androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fr
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "roomRuntime" }
 androidx-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
@@ -74,6 +78,9 @@ google-services = { module = "com.google.gms:google-services", version.ref = "go
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 holoColorPicker = { module = "com.larswerkman:HoloColorPicker", version.ref = "holoColorPicker" }
 junit = { module = "junit:junit", version.ref = "junit" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 spinKit = { module = "com.github.ybq:Android-SpinKit", version.ref = "spinkit" }
