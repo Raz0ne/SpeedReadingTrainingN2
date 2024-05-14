@@ -127,8 +127,7 @@ private fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(
         topBar = { TopBar() },
-        bottomBar = { BottomNavigationBar(navController) },
-        backgroundColor = MaterialTheme.colors.background
+        bottomBar = { BottomNavigationBar(navController) }
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
             Navigation(navController = navController)

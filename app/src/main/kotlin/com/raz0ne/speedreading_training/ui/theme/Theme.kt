@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 
 private val lightThemeColors = lightColors(
     primary = Yellow,
-    onPrimary = Brown
+    onPrimary = Brown,
 )
 
 private val darkThemeColors = /*darkColors()*/ lightThemeColors
